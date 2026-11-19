@@ -2,9 +2,9 @@
 
 ## Current state
 
-Phase 0 was merged into main at `7ec09fd`; its baseline commit is `a7c63ad`. Phase 1 is building on `codex/phase-1-foundation`. The owner requested this new branch after deleting the merged remote branch. Detailed local review records stay excluded. Phase 1 has no commit, push or deployment.
+The new `capstone-pondroot` repository received the reviewed Phase 0 guidance and Phase 1 foundation in its initial `main` commit, `19ed6abfda6ef8683eb314676a217a21d3b1b8b0`. Phase 2 has not started. Detailed local review records stay excluded. No production deployment was performed.
 
-Work branch: codex/phase-1-foundation, created from fetched origin/main at 7ec09fd. The repository is public. Prior GitHub metadata reported no Actions workflows; current external deployment/webhook settings remain unverified. Recheck before a push. This status is not publication authorization.
+Current branch: `main`. For each later phase, inspect current local and remote state and create a fresh `codex/` branch from the appropriate baseline. Review repository visibility and any CI or deployment triggers before publication.
 
 ## One-phase cycle
 
@@ -38,8 +38,8 @@ Agree bounded subphases if needed; don't call a parent complete from a partial s
 
 | Phase | State | Commit | Push |
 | --- | --- | --- | --- |
-| 0 | Merged into main | a7c63ad (merge 7ec09fd) | Previously verified |
-| 1 | Implemented locally; visual/access review incomplete | None | Not attempted |
+| 0 | Transferred to new main | Initial commit 19ed6ab | Verified on origin/main |
+| 1 | Owner reviewed; foundation transferred to new main | Initial commit 19ed6ab | Verified on origin/main |
 | 2-10 | Not started | None | Not attempted |
 
 Future closure records sanitized scope, actual checks, owner review and Git evidence. Do not invent the hash of a commit containing this status; report the actual hash in the handoff/local ledger after commit/push, and include it in a later reviewed update if useful. Keep private observations and files local.
@@ -48,7 +48,7 @@ Future closure records sanitized scope, actual checks, owner review and Git evid
 
 Start: "Read project guidance. Start Phase N only, implement its acceptance, run checks and show the result. Stop for my review before committing/pushing or starting another phase."
 
-Approve: "I approve Phase N. Run affected checks, commit only reviewed appropriate changes and push to codex/pondroot-build. Verify/report the result, update evidence and stop. Do not merge main or deploy."
+Approve: "I approve Phase N. Run affected checks, commit only reviewed appropriate changes and push the current phase branch. Verify/report the result, update evidence and stop. Do not merge main or deploy unless I explicitly request it."
 
 Changes: "Keep working on Phase N. Make these changes, retest and return for review. Do not commit, push or start another phase yet."
 

@@ -20,7 +20,7 @@ Documentation/workflow preparation is not application implementation. No applica
 
 ## Git and publication boundaries
 
-Default implementation branch: `codex/pondroot-build`, created or selected during explicitly started Phase 0 after inspecting local/remote state. Keep a linear sequence of phase commits on it. Never force-push, rewrite published history, overwrite another person's changes or merge/push main without explicit user instruction. A PR/merge is separate unless requested. Respect any actual branch protection; do not bypass it.
+The new repository's baseline is on `main`. For each explicitly started later phase, inspect local and remote state and create a fresh `codex/` branch from the appropriate baseline. Keep focused reviewed phase commits. Never force-push, rewrite published history, overwrite another person's changes or merge/push main without explicit user instruction. A PR/merge is separate unless requested. Respect any actual branch protection; do not bypass it.
 
 Before a first push, inspect remote/repository visibility and configured CI/deployment behavior as accessible. Do not publish private sources, real persona details, research contacts/results, resumes, API request content, downloaded personal files, credentials or environment files. Full local planning documents are not automatically cleared for publication. Prepare sanitized implementation guidance and a reviewed ignore configuration in Phase 0; do not use blanket staging. Do not change repository visibility or deployment settings on the owner's behalf without an instruction covering that action. Explain any unresolved exposure or automatic deployment behavior before the concrete affected push.
 
