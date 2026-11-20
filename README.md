@@ -4,7 +4,7 @@ Pondroot is a planned employment-preparation application for people returning ho
 
 ## Current state
 
-Phase 0 and the reviewed Phase 1 Stillwater guest home are on this repository's `main` branch. The foundation includes navigation previews; later tools are not implemented. Phase 2 has not started. See [development commands](docs/DEVELOPMENT.md).
+Phase 0 and the reviewed Phase 1 Stillwater guest home are on this repository's `main` branch. Phase 2 adds the manual résumé journey on `codex/phase-2-manual-resume` and awaits owner review. See [Phase 2 evidence and walkthrough](docs/PHASE_2_REVIEW.md) and [development commands](docs/DEVELOPMENT.md).
 
 The approved first release includes guest access, a session home, PowerSkills and complete resume editing, optional Claude Sonnet wording assistance with explicit review, editable local drafts, PDF/printing, reviewed document guidance and Transparent Hiring Information with written interview practice. AI interview simulation and cloud resume accounts are deferred.
 
