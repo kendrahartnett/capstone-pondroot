@@ -1,0 +1,11 @@
+export type ReviewedText = {id:string;text:string;included:boolean;origin:'user';sourceRefs:{factId:string;factRevision:number}[];review:{state:'authored';reviewedContentRevision:null}};
+export type PartialDate = {year:number;month?:number};
+export type Entry = {id:string;included:boolean;title?:string;organization?:string;location?:string;startDate?:PartialDate;endDate?:PartialDate;isCurrent:boolean;bullets:ReviewedText[];sourceFactIds:string[]};
+export type Education = {id:string;included:boolean;credential?:ReviewedText;institution?:string;completionDate?:PartialDate;details:ReviewedText[];sourceFactIds:string[]};
+export type Training = {id:string;included:boolean;kind:'training'|'certification';name?:ReviewedText;issuer?:string;completionDate?:PartialDate;expiryDate?:PartialDate;details:ReviewedText[];sourceFactIds:string[]};
+export type Additional = {id:string;included:boolean;heading:string;entries:ReviewedText[]};
+export type Draft = {contentRevision:number;contact:{displayName?:string;email?:string;phone?:string;cityRegion?:string;professionalLink?:string};introduction?:ReviewedText;skills:ReviewedText[];experiences:Entry[];education:Education[];training:Training[];additionalSections:Additional[];sourceFacts:{id:string;revision:number;text:string;topic:'experience'|'education'|'training'|'skill'|'other';origin:'user_entered'}[];sectionOrder:string[]};
+export const emptyDraft = ():Draft => ({contentRevision:0,contact:{},skills:[],experiences:[],education:[],training:[],additionalSections:[],sourceFacts:[],sectionOrder:['contact','introduction','skills','experience','education','training','additional']});
+export const authored = (text:string,existing?:ReviewedText):ReviewedText => ({id:existing?.id??crypto.randomUUID(),text,included:existing?.included??true,origin:'user',sourceRefs:[],review:{state:'authored',reviewedContentRevision:null}});
+export const dateText = (date?:PartialDate) => date ? `${date.month ? `${date.month}/` : ''}${date.year}` : '';
+export const visible = (items:ReviewedText[]) => items.filter(item=>item.included&&item.text.trim());

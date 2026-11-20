@@ -40,7 +40,8 @@ Agree bounded subphases if needed; don't call a parent complete from a partial s
 | --- | --- | --- | --- |
 | 0 | Transferred to new main | Initial commit 19ed6ab | Verified on origin/main |
 | 1 | Owner reviewed; foundation transferred to new main | Initial commit 19ed6ab | Verified on origin/main |
-| 2-10 | Not started | None | Not attempted |
+| 2 | Owner approved; final checks and publication checkpoint | Recorded in phase handoff | Pending verification |
+| 3-10 | Not started | None | Not attempted |
 
 Future closure records sanitized scope, actual checks, owner review and Git evidence. Do not invent the hash of a commit containing this status; report the actual hash in the handoff/local ledger after commit/push, and include it in a later reviewed update if useful. Keep private observations and files local.
 
