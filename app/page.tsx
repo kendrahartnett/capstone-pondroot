@@ -1,7 +1,24 @@
 'use client';
 import {useResume} from './resume/provider';
+import {useLanguage} from './language';
 import Link from 'next/link';
 export default function Home() {
- const {draft}=useResume();
- return <main id="main" tabIndex={-1}><section className="hero" aria-labelledby="welcome"><div className="hero-copy"><p className="eyebrow">Start with your strengths</p><h1 id="welcome">Your experience has a place to grow.</h1><p className="intro">Turn what you have done into a résumé you can use.</p><p>PowerSkills are the skills you use at work and in everyday life.</p><Link className="button primary" href="/resume/start">{draft.contentRevision ? "Continue my résumé" : "Discover your PowerSkills & build your résumé"} <span aria-hidden="true">↗</span></Link><Link className="direct" href="/resume/edit">Go straight to my résumé <span aria-hidden="true">→</span></Link><p className="preview-note">Write and review your résumé here. File downloads are coming in Phase 3.</p></div></section><section className="next-steps" aria-labelledby="steps"><div className="section-heading"><p className="eyebrow">A little clarity for what comes next</p><h2 id="steps">My next steps</h2><p>Start with what helps you today. These tools work independently.</p></div><div className="cards"><article className="card"><span className="status">Not checked</span><h3>Do you have what you need to start working?</h3><p>Explore which documents an employer may ask for and find official guidance.</p><p>You can build your résumé without completing this check.</p><Link className="button secondary" href="/documents">Check your documents <span aria-hidden="true">→</span></Link></article><article className="card"><p className="eyebrow">Understand the process</p><h3>Transparent Hiring Information</h3><p>Understand hiring steps, find useful resources, and learn how to tailor your résumé truthfully.</p><p>Take things at your own pace.</p><Link className="button secondary" href="/learn">Discover what you need to know <span aria-hidden="true">→</span></Link></article></div><details className="help"><summary>How can I keep my work?</summary><p>Your work stays in this tab while you move around Pondroot. You will be able to save an editable draft to continue later. Refreshing or closing the page can lose unsaved work.</p><p>Your entries stay in this tab. File saving is not available yet.</p></details></section></main>;
+ const {draft}=useResume(); const {es}=useLanguage();
+ const t=(en:string,sp:string)=>es?sp:en;
+ return <main id="main" tabIndex={-1}>
+ <section className="hero rooted-hero" aria-labelledby="welcome"><div className="hero-copy">
+ <p className="eyebrow" lang="en">Rooted Network</p>
+ <h1 id="welcome">{t('Your experience matters.','Tu experiencia cuenta.')}</h1>
+ <p className="intro">{t('Show employers what you can do.','Muestra lo que sabes hacer.')}</p>
+ <Link className="button primary" href="/resume/start">{draft.contentRevision?t('Continue my résumé','Seguir con mi currículum'):t('Find my strengths','Descubrir mis habilidades')}</Link>
+ <Link className="direct" href="/resume/edit">{t('Write my résumé','Crear mi currículum')}</Link>
+ <p className="preview-note">{t('No account needed.','No necesitas una cuenta.')}</p>
+ {es && <p className="language-note">Las herramientas aún están en inglés.</p>}
+ </div></section>
+ <section className="network-section" id="rooted-network"><p className="eyebrow" lang="en">Rooted Network</p><h2>{t('A path to work.','Un camino al empleo.')}</h2><p>{t('Employer connections are coming. Start with your résumé today.','Pronto podrás conectar con empleadores. Hoy puedes preparar tu currículum.')}</p></section>
+ <section className="next-steps" aria-labelledby="steps"><h2 id="steps">{t('Need help?','¿Necesitas ayuda?')}</h2><div className="cards">
+ <article className="card"><h3>{t('Documents','Documentos')}</h3><p>{t('Learn what you may need for work.','Conoce qué documentos podrías necesitar.')}</p><Link className="button secondary" href="/documents">{t('See document help','Ver ayuda con documentos')}</Link></article>
+ <article className="card"><h3>{t('Hiring information','Información de contratación')}</h3><p>{t('Learn about ATS and applying online.','Conoce los sistemas ATS y cómo solicitar empleo en línea.')}</p><Link className="button secondary" href="/learn">{t('Explore hiring','Conocer el proceso')}</Link></article></div>
+ <details className="help"><summary>{t('Will my work be saved?','¿Se guarda mi trabajo?')}</summary><p>{t('Your work stays in this tab. Closing or refreshing it can lose your work. Saving files is not available yet.','Tu trabajo permanece en esta pestaña. Si la cierras o actualizas, puedes perderlo. Aún no puedes guardar archivos.')}</p></details>
+ </section></main>;
 }

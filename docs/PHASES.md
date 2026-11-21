@@ -1,56 +1,23 @@
 # Pondroot phases and checkpoints
+November 20, 2026 — Rooted Network implementation sequence
 
-## Current state
+The product releases are MVP, Phase 2 improvement and Phase 3 network growth. The implementation checkpoints below divide MVP into reviewable work. They do not claim implementation or authorize starting a phase.
 
-The new `capstone-pondroot` repository received the reviewed Phase 0 guidance and Phase 1 foundation in its initial `main` commit, `19ed6abfda6ef8683eb314676a217a21d3b1b8b0`. Phase 2 has not started. Detailed local review records stay excluded. No production deployment was performed.
-
-Current branch: `main`. For each later phase, inspect current local and remote state and create a fresh `codex/` branch from the appropriate baseline. Review repository visibility and any CI or deployment triggers before publication.
-
-## One-phase cycle
-
-1. Read guidance/acceptance, inspect Git/current state and preserve unrelated work.
-2. Build only the named phase and run initial checks; fix failures.
-3. Present the working result/artifact, checks, limits and walkthrough; stop before commit/push.
-4. Apply feedback/retest; after explicit approval covering commit/push, publish only reviewed appropriate paths.
-5. Report actual commit/push/remote verification, update evidence and stop before the next phase unless instructed otherwise.
-
-Approval cannot waive safety failures; tests cannot replace owner review. Failed push is not completion. Never force-push/rewrite history or merge/push main without instruction. Default is one work branch with focused phase commits; respect actual branch protection. Deployment and PR/merge are separate actions.
-
-## Phase map
-
-| Phase | Deliverable | Review focus |
+| Checkpoint | Outcome | Required evidence |
 | --- | --- | --- |
-| 0 Baseline | Sanitized guidance, publication/ignore policy and repository review | Self-contained public guidance, deliberate local exclusions, no app scaffolding. |
-| 1 Foundation | Compatible Next.js/React/TypeScript and accessible responsive Stillwater guest home/navigation | Actual UI/assets/CTAs/focus/reflow and real dev/check commands. |
-| 2 Manual resume | Source/content model, guided complete sections and live/mobile preview | Truthful edits/navigation, no account or AI dependency. |
-| 3 Files/print | Local drafts, safe import/clear, PDF/view/download/print | Create-save-clear-open-revise-export; actual devices and error/cancel behavior. |
-| 4 AI | Server Claude, operational limits, consent and review | Caps before calls, provenance, initial benchmark, privacy and manual fallback. |
-| 5 Documents | Reviewed deterministic options and official obtaining help | Supported cases/uncertainty, no eligibility verdict or resume gate. |
-| 6 Hiring information | Three lesson groups, reviewed videos and written interview practice | Useful text/file concepts, reviewed content, no simulator; resume retained. |
-| 7 Analytics | Reviewed minimal provider/event/reporting | Actual retention/data boundaries, declined/blocked tasks still usable. |
-| 8 Integrated checks | Extreme/privacy/access checks and frozen live AI evaluation/fixes | Current observed evidence; earlier phases already check relevant behavior. |
-| 9 User evaluation | Voluntary stable-version tasks and fixes/retests | Independent comprehension/recovery; honest counts, no invented results. |
-| 10 Release readiness | Ownership, disable/rollback/incident rehearsal and final checklist | Gates, funded limits, maintenance, separate deployment/merge approval. |
+| RN1 Design alignment | Mural inspired welcome, simple navigation and calm responsive workspace | Desktop/mobile walkthrough, keyboard/focus/reflow and copy review |
+| RN2 Files | Local draft, PDF, Print and required download email with separate impact permission | Round trip, cancellation, malformed files, stale output, PDF content and print without email |
+| RN3 AI and voice | Supported wording, conversational speak/type and transcript confirmation | Separate mock/live AI evidence, exact consent, fact invalidation, voice denial/failure and accessibility |
+| RN4 Accounts | Optional sign in, explicit cloud save, personal area, recovery/export/deletion | Cross account authorization, concurrent edits, interrupted upload, sign out and deletion |
+| RN5 Rooted Network | Verified inventory, profile preview, matching opt in and approved introductions | Consent revocation, partner suspension, expiry, access isolation and honest empty states |
+| RN6 Guidance and end to end release | ATS/application lessons, documents, resources and complete bridge journey | Editorial review, intended user tasks, device checks and release risk review |
 
-Agree bounded subphases if needed; don't call a parent complete from a partial slice. Reviews/fixes/Git use the same hours, not extra free time. Reforecast remaining capacity and arrange users/content review early rather than defer preparation until implementation phases. No next phase starts automatically.
+MVP includes RN1–RN6. Phase 2 expands coaching, readiness checklists and pilot quality. Phase 3 adds moderated employer self service and broader matching based on pilot evidence. AI interview simulation, automatic submission, broad marketplace and paid coaching are outside MVP.
+Reestimate the expanded scope before setting a delivery date. Verified partners and an operational owner are required for a real connection pilot. Mock employers cannot substitute for that gate.
 
-## Status
+Before each checkpoint read AGENTS, README, BUILD_BRIEF, ACCEPTANCE, DATA_CONTRACT and SCREEN_FLOW. Inspect Git status and remote baseline; preserve unrelated/private work; use a fresh codex/ branch when implementation is requested. Run meaningful actual checks, present a preview, behavior, limits and owner walkthrough. After explicit approval commit only reviewed files and push, verify the tip and stop. Merge/deployment and the next phase require their own instruction.
+Historical evidence remains in phase review records and Git; this sequence replaces earlier implementation ordering without erasing history.
 
-| Phase | State | Commit | Push |
-| --- | --- | --- | --- |
-| 0 | Transferred to new main | Initial commit 19ed6ab | Verified on origin/main |
-| 1 | Owner reviewed; foundation transferred to new main | Initial commit 19ed6ab | Verified on origin/main |
-| 2 | Owner approved; final checks and publication checkpoint | Recorded in phase handoff | Pending verification |
-| 3-10 | Not started | None | Not attempted |
+## RN1 review evidence
 
-Future closure records sanitized scope, actual checks, owner review and Git evidence. Do not invent the hash of a commit containing this status; report the actual hash in the handoff/local ledger after commit/push, and include it in a later reviewed update if useful. Keep private observations and files local.
-
-## Handoff prompts
-
-Start: "Read project guidance. Start Phase N only, implement its acceptance, run checks and show the result. Stop for my review before committing/pushing or starting another phase."
-
-Approve: "I approve Phase N. Run affected checks, commit only reviewed appropriate changes and push the current phase branch. Verify/report the result, update evidence and stop. Do not merge main or deploy unless I explicitly request it."
-
-Changes: "Keep working on Phase N. Make these changes, retest and return for review. Do not commit, push or start another phase yet."
-
-Examples are not current authorization to execute their quoted actions.
+Owner approved the Rooted Network visual direction on November 20, 2026, then requested shorter home copy and an English/Español switch. The revised home and navigation were reviewed in desktop and narrow mobile browser views. Rooted Network navigation, résumé preparation routing, Spanish selection, page language updates, visible keyboard focus and 320 CSS pixel reflow were observed. The Spanish switch currently translates the home and navigation and clearly states that the remaining tools are still in English. Typecheck, lint and production build passed on November 21, 2026. Commit and push were explicitly approved; their results are recorded in the commit history and remote branch.

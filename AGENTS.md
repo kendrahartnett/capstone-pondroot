@@ -2,7 +2,7 @@
 
 ## Scope and sources
 
-Build the approved guest-first employment-preparation application in the user's requested phase only. The selected visual direction is Stillwater. Core screen-flow review is complete; written interview practice is included; the AI interview simulator, cloud resume saving/authentication and persistent account dashboard are deferred.
+Build the approved guest-first employment-preparation application in the user's requested phase only. The selected visual direction is Stillwater. Rooted Network is the employer connection experience. MVP includes voice/type discovery, optional accounts/cloud saving, profile consent and verified partner introductions. AI interview simulation and broad employer self service are deferred. Read docs/SCREEN_FLOW.md and docs/DATA_CONTRACT.md with the build baseline.
 
 Read README.md, docs/BUILD_BRIEF.md, docs/ACCEPTANCE.md and docs/PHASES.md before a phase. These are the sanitized public build baseline. If local docs/planning exists, its Planning_Index.md, Phase_Build_Workflow.md, Phase_Progress.md and relevant flow/architecture/evaluation files supply approved detail. Do not require private files in a fresh clone or publish them to satisfy an instruction-file reference. Original and historical sources remain preserved; current user decisions govern over older material.
 
@@ -28,11 +28,11 @@ Phase 0 has no app tests yet. Review its documentation/ignore/staging choices ra
 
 ## Product and data rules
 
-- React/Next.js/TypeScript, one original single-column text-based PDF template and versioned editable local draft files. Browser-only PDF and draft import/export; contact details remain out of normal AI requests. No hidden resume persistence in browser storage or server database.
+- React/Next.js/TypeScript, one original single-column text-based PDF template and versioned editable local draft files. Browser-only PDF and draft import/export; contact details remain out of normal AI requests. No hidden browser persistence. Cloud résumé storage requires explicit authenticated Save online; partner access is limited to approved shared profiles.
 - Claude Sonnet through a server-only API boundary, exact selected-data consent, supported suggestions and individual accept/edit/reject. No invented qualifications/metrics/dates, no silent approval or background rewrites. Changing facts invalidates dependent approvals. Clearing invalidates late AI/import/PDF work.
 - Manual completion remains available. Documents and learning never gate resumes. Document guidance is reviewed/deterministic, A OR B+C in the general case, with official obtaining-help resources and uncertainty handling; no legal eligibility verdict or scans/numbers.
 - Keep the application warm, readable, responsive and accessible. Live readable preview, mobile Edit/Preview, distinct Download PDF / Print resume / Save editable draft actions, honest error/recovery and file guidance for unfamiliar digital job seekers.
-- Keep operational-only Neon and analytics separate from resume/contact/document content. No paid API calls without numeric caps and reviewed setup. No key in chat, public bundles or committed files. No outreach or real application submission.
+- Keep operational AI counters and analytics separate from authenticated résumé/profile storage; enforce server authorization on every sensitive operation. No paid API calls without numeric caps and reviewed setup. No key in chat, public bundles or committed files. No outreach or real application submission.
 - Use synthetic people/data in tests, screenshots and public examples. Follow docs/ACCEPTANCE.md and, when available locally, the detailed private AI evaluation plan. Local mocked tests and live model outputs have separate counts. No known severe safety/privacy/accessibility defect is averaged away.
 
 ## Evidence and handoff

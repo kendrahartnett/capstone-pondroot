@@ -1,101 +1,28 @@
-# Pondroot sanitized build brief
+# Pondroot build brief
+November 20, 2026 — Rooted Network product baseline
 
-## Problem and audience
+## Purpose
+Pondroot is a trusted bridge between overlooked talent and real employment opportunities. Help justice impacted adults turn real experience into recognized skills, prepare applications and choose connections with verified employers. Résumé creation supports this outcome; a completed résumé alone is not an employment result.
 
-People returning home after incarceration may have useful education, work and life experience while facing an unfamiliar digital hiring process. Some have never created a resume or handled online application files. Pondroot helps them recognize supported skills, prepare a truthful complete resume, understand document options and learn application steps. It does not guarantee employment, verify work authorization or replace human help.
+## Experience
+Guest preparation is available without an account or incarceration disclosure. Welcome offers Start with my strengths and Go straight to my résumé. Navigation includes My next steps, Build my résumé, Rooted Network, Check my documents, Transparent Hiring Information and Sign in. On mobile group secondary links in an accessible menu.
+Discovery accepts voice or typing, one question at a time. Review transcripts and confirm facts before AI use. Show exact selected outgoing facts before each Claude request. Suggestions cite current facts and require individual Use, Edit or Leave out. Changes invalidate dependent approvals. Never infer qualifications, employers, duties, dates, credentials or metrics. Manual completion survives service failure.
+Provide editable contact, introduction, skills, experience, education and optional training/additional sections; sparse content is valid. Desktop has live preview, mobile Edit/Preview. One original single column text résumé template. See SCREEN_FLOW.md and DATA_CONTRACT.md.
 
-Design for capable adults with varied digital familiarity, literacy, devices and access needs. Use synthetic examples, not a real person's private story. Generic examples may include GED, paid, informal, caregiving, volunteer or institutional experience. Never require a conventional employer history or sensitive disclosure.
+## Files and email
+Browser generated PDF and Print use the same eligible reviewed content. Download PDF requires an email; Print and Save editable draft do not. Separately ask unchecked permission for one impact follow up. No still downloads and the address is discarded; Yes permits one message, then deletion, within 90 days at most. No marketing, account or matching consent is implied. Do not automatically email or upload the PDF. Explain file location and PDF versus editable draft; preserve work on failure or cancellation.
+Guest state is memory only with deliberate versioned local files; no hidden browser persistence. Import validates atomically before replacement. Clear invalidates late AI/import/PDF work.
 
-## Roles
+## Accounts and Rooted Network
+MVP includes optional managed authentication, secure owner scoped cloud résumé saving, simple personal area, candidate profile and a small verified partner pilot. Account creation does not publish a profile. User chooses Yes or No to matching, default No, previews exact shared fields and approves each introduction. Partners receive only that approved profile. Explain why an opportunity may fit using confirmed skills/preferences. No guaranteed interview or job, inferred justice history scoring or automatic application submission.
+Verify organizations, name/logo permission, jobs, source, requirements and expiry before publication. Honest empty states remain useful when inventory is unavailable. Partner suspension and consent withdrawal block new access; explain already received information cannot be recalled. Initial matching may be operator assisted; no employer self service portal is needed for MVP.
 
-- Guest author: chooses facts, reviews wording, edits sections, saves/opens local files and clears work without an account.
-- Optional trusted helper: assists with permission; no counselor approval, remote resume access or delegated dashboard required.
-- Product/content reviewer: approves rules, official resources, written lessons and each video, with review/withdrawal records.
-- Engineering/operations maintainer: verifies boundaries, spending controls, incident recovery and maintenance.
-- Voluntary participant: uses synthetic tasks and may stop without penalty; research contacts/observations are not app content.
+## Independent guidance
+Transparent Hiring Information includes ATS, online applications, truthful tailoring, file upload versus submission, written interview practice and official resources. Explain employer variation; no ATS score or pass guarantee. Written lessons stand alone; optional reviewed videos load only on request. Document help uses reviewed deterministic official guidance, general A OR B+C alternatives and uncertainty routing; no legal verdict, scans or document numbers. Neither learning nor documents gate other tools. Additional help and services can link to a reviewed external project with destination/prototype disclosure and no automatic data handoff.
 
-Assign actual operating responsibility before release. These roles add no login types or admin application.
+## Design and access
+Selected mural inspired Rooted Network direction: community, open doors, roots, water and clay. Keep the original bright green Pondroot logo, dark Stillwater surfaces and restrained warm accents. Expressive welcome art frames content; task screens stay calm and opaque. Plain adult language, short steps, large targets, visible focus, semantic controls, screen reader states, mobile reflow and reduced motion. No gamification or generic metric dashboard. No replacement logo until an original selected asset is approved.
 
-## Approved home and navigation
-
-Core screen flows are approved. Navigation exposes My next steps, Build my resume, Check my documents and Transparent Hiring Information. All tools work independently in the same active browser session.
-
-The dominant CTA is **Discover your PowerSkills & build your resume**, becoming Continue my resume when work exists. A secondary card asks **Do you have what you need to start working?**, with Check your documents. The learning card is **Transparent Hiring Information**, with **Discover what you need to know**.
-
-Document highlighting reports Not checked, In progress, Needs review or Next steps reviewed this session, using text beyond color. It never means authenticated documents, legal clearance or an employability score. No document check gates a resume.
-
-## Resume and optional AI journey
-
-1. Start a resume or open a local editable draft without login or uploading an existing resume.
-2. Describe real experience in plain language or guided fields. Keep facts separate from private notes and suggestions. Support sparse history and missing optional fields without invented placeholders.
-3. Choose manual writing or Claude assistance. Before every request show exact selected outgoing facts, recipient/processing explanation and edit/deselect/cancel. Contact fields are excluded normally; pasted private details still need review. Opening a screen sends nothing.
-4. Suggestions show source support and individual Use this, Edit and Leave out. Nothing is preselected. Editing confirms with Use my edited wording. Accepting one item approves no other item; undo/remove remains available.
-5. Preview contains current selected user-written or reviewed content, not pending suggestions. Known unsupported output is rejected; semantic checks require evaluation and human review. Changed facts invalidate dependent approvals. Manual use survives provider errors/limits.
-6. Edit Contact, Introduction, Skills, Experience, Education and bounded optional Training/Certifications/Additional information. All sections remain editable. Distinguish training from certification; no mandatory full address, birth date, government number or sensitive record.
-7. Desktop has side-by-side editing/readable preview; mobile has large Edit/Preview controls preserving work and position. Preview Edit focuses matching labeled fields. Omit empty optional sections.
-8. Full review identifies issues plainly. View actual generated PDF pages, with readable content fallback. Tie review/PDF to content revision and invalidate outdated output after edits.
-9. Separate Download PDF (applications), Print resume (clean view/native dialog), Save editable draft (continue in Pondroot) and Edit resume. Include help finding files. Failure/cancellation preserves work; never claim proven disk saving, physical printing or employer receipt.
-
-No employer matching, generic chatbot, unreviewed background rewrites, user rankings or automatic application submission.
-
-## Saving and recovery
-
-Active work/progress stays in shared memory across internal navigation. No automatic localStorage/sessionStorage/IndexedDB/service-worker resume saving or hidden cloud backup. Refresh/crash may lose changes since deliberate saving; leave warnings are supplemental.
-
-The editable file is versioned UTF-8 JSON with a neutral filename. Include chosen resume fields, source relationships and review state; exclude secrets, tracking IDs, document answers and raw model envelopes. Explain sensitive unencrypted content and distinguish it from PDF. Bound and fixture-test file/schema/input limits.
-
-Import locally, validate the entire file, summarize minimally and confirm replacement. Failed/cancelled/unsupported imports preserve current work. PDF is not an editable draft. Imported approval flags are untrusted and final review is renewed. No file bytes/filenames in API requests or analytics.
-
-End session offers save, keep working or explicit clear. Clear resets active content/progress and invalidates pending AI/import/PDF work. Explain downloaded/OS/provider copies remain outside that action. No silent work-discarding timeout.
-
-## Documents and obtaining help
-
-Use reviewed deterministic official guidance and minimal self-report: have, need obtaining help or unsure. No scans/numbers, exact birth date or legal eligibility verdict. General I-9 paths are acceptable List A OR acceptable List B plus List C selections. Special/receipt/validity cases and uncertainty route to reviewed official guidance rather than universal guessed rules.
-
-Show acceptable alternatives before replacement. Get or replace this document cards identify issuing agency, official instructions, first step, prerequisites, supported process/jurisdiction and review status. Distinguish first issuance/replacement and residence/birth jurisdiction. Missing prerequisites lead to official support/reviewed alternatives, not circular advice. Start with national resources/state directories, not a 50-state engine or paid intermediary by default.
-
-No document answers in AI, analytics, URLs or resume drafts. A click is not issuance. Content approval, review dates, expiry and withdrawal are required before advice publication.
-
-## Transparent Hiring Information
-
-One page groups What you need to know, Where to go and How to tailor your resume. Teach terms, required/preferred qualifications, application steps, download/upload, locating/attaching files, employer file instructions/accounts, safe resources and truthful emphasis. Return to my resume preserves work. No compulsory course, certificate or completion gate.
-
-Written lessons stand alone. Videos need actual owner approval, dates/expiry and click-to-load; no player/remote thumbnail/preconnect before choice, autoplay or watch requirement. Unavailable video leaves the lesson useful. External links explain destinations and preserve the original tab. Link success is not editorial approval or learning evidence.
-
-Include written interview practice: describe relevant skills; explain a real problem solved; explain teamwork; discuss interest/learning; prepare questions for the employer. An optional Situation/Task/Action/Result scaffold requires no invented metrics or private-history disclosure. Practice privately/aloud or with a trusted person; no answer capture, grading or recording. AI interview simulation is deferred.
-
-## Stillwater visual direction
-
-Tokens: pond `#000D08`, emerald `#123C2D`, restrained lime `#B4EE21`, ivory `#F5F3E8`, ink `#14261E`, muted `#4F6258`. Preferred fonts: Manrope and Source Sans 3 with reviewed licensed/local delivery. Verify actual contrast combinations; tokens alone do not establish accessibility.
-
-Arrival may use approved original atmospheric assets; working forms stay opaque, calm and readable. Use generous spacing, clear hierarchy, conventional controls, visible focus and reduced-motion-safe nonessential effects. No difficult artwork behind fields or reentry branding in PDF. Identify missing original assets for intentional review; do not approximate or copy unrelated folders.
-
-One original US Letter single-column text resume template uses readable fonts/headings and natural page wrapping. No forced one-page shrinkage, screenshot PDF or universal ATS guarantee. Employer file instructions govern; Word export and extra template galleries are deferred.
-
-## Technical defaults
-
-- One Next.js App Router/React/TypeScript project; inspect installed docs and pin compatible dependencies. Tailwind/accessible primitives and Zod may implement the interface and boundary validation.
-- Shared browser state and versioned export content. First PDF candidate: browser-only @react-pdf/renderer, with bounded compatibility/layout spike. No server conversion. Verify print pagination separately.
-- Server-only official Anthropic SDK and configured Sonnet. Verify available ID/account/pricing/schema/processing before integration. No browser key, arbitrary URL fetch, model tools or unnecessary streaming complexity.
-- Dedicated operational-only Neon can provide atomic paid-call reservations and abuse controls across instances. No permanent resume/contact/document tables or Neon Auth. Server-only credentials, expiry and concurrency evidence.
-- Review one minimal analytics provider's actual collection/retention/access/plan before activation. Fixed events, no personal content/sensitive URLs/replay/identity graph. Traffic/tasks are not employment outcomes.
-- Keys go directly into protected settings; numeric evaluation/production caps precede paid calls. Routine phases do not authorize paid provisioning, outreach or deployment.
-
-## Delivery and open inputs
-
-Follow PHASES.md. Approximately 140 available hours includes planning/reviews; retain the 112 scheduled/28 reserve target and reforecast actual remaining time. Deadline/rubric and numeric AI caps remain open. Rubric uncertainty need not block a reversible guest/manual foundation, but no course-compliance claim until checked. Content, device/user and AI release gates remain unverified.
-
-
-## Approved Direction A journey refinement
-
-Approved November 19, 2026. Start With Your Strengths is recommended and skippable. Keep the dominant approved CTA, immediately define PowerSkills as skills used at work and in everyday life, and expose Go straight to my résumé through Start/Open to the manual editor. Use four stable stages: Your experience, Your résumé, Review, Files and next steps. No minimum skill count, compulsory introduction, batch approval or invented unknown details. Show manageable source-linked suggestions; reject known unsupported claims before display. Prompt deliberate draft saving after meaningful progress and offer file-location help beside export. Lead post-export guidance with the immediate application step, distinguishing attachment from submission. Preserve existing MVP, Stillwater, deferred scope and phase gates. JA01–JA12 in ACCEPTANCE.md specify planned observable checks; none passed by this amendment.
-
-
-## Data contract and phase terminology
-
-[DATA_CONTRACT.md](DATA_CONTRACT.md) specifies the version 1 résumé/source/review/file and operational boundaries for future implementation, including initial validation bounds and DC01–DC08. This is documentation, not implemented code or evidence. Use numbered implementation phases 0–10 in PHASES.md; capstone delivery stages A–D group planning/baseline, core résumé, supporting preparation and integrated readiness respectively. Stage approval never starts later implementation phases or authorizes deployment. Persona demographics are planning-only and never required app fields.
-
-
-## Later-build additional support referral
-
-Plan an optional Additional help and services card after S09 file actions and within S12 Where to go. It links to a separately reviewed external student project; disclose its actual purpose, prototype/account status and new tab. No automatic data handoff, iframe, shared sign-in, referrer or personal tracking. Preserve the original résumé and offer optional editable-draft saving. Record as an existing resource-scope item and schedule bounded card work/activation toward the end at an explicitly started Phase 10 checkpoint. Activate only after live destination/privacy/access/editorial review; keep an unready resource unpublished without blocking Pondroot. No additional service integration or new visuals are authorized.
+## Technology and boundaries
+Next.js/React/TypeScript; read installed framework guidance before coding. Claude Sonnet server only with numeric paid usage caps and no keys/content in logs. Managed identity and authorized content storage are distinct from operational AI counters and analytics. Browser PDF/local files; explicit cloud save only. Voice requires provider/privacy/browser evaluation and text fallback; no default audio retention. Provider choice, retention, account recovery, deletion/backups, partner review ownership and funded limits are activation dependencies.
+Use synthetic fixtures. No outreach, paid provisioning, production deployment or real application submission is authorized by this brief. Build one explicitly requested phase, show evidence and stop for review before commit/push.
