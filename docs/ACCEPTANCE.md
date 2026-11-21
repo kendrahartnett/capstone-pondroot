@@ -68,10 +68,12 @@ At least four of five independently complete a truthful usable resume and separa
 | G5 Independent access | Actual device/access/intended-user evidence and serious barriers fixed. |
 | G6 Operations | Ownership, disable/rollback/credentials, incident/content withdrawal rehearsal and residual limits. |
 
-Cloud-vault checks are not applicable while deferred; reopening scope needs a new gate. Do not mark full release complete with a required gate open or infer employment impact from traffic/downloads/lesson clicks/the small study.
+Account authorization, cloud recovery/deletion and Rooted Network consent/access checks are required MVP gates. Do not mark full release complete with a required gate open or infer employment impact from traffic/downloads/lesson clicks/the small study.
 
 
-## Approved Direction A acceptance amendment
+## Manual journey acceptance
+
+JA screen numbers below refer to the historical journey; SCREEN_FLOW.md supplies current routing. RN criteria govern accounts, cloud saving and employer connections.
 
 Approved November 19, 2026. JA IDs are stable refinements of existing US/V IDs, not additional product scope. Every check below is PLANNED / NOT RUN. Documentation consistency review is not application verification.
 
@@ -99,3 +101,24 @@ DC01–DC08 in [DATA_CONTRACT.md](DATA_CONTRACT.md) refine existing V01–V23 co
 ## Later-build support-card acceptance
 
 ER01: optional card after S09 file actions and in S12 Where to go, no résumé gate (US01/US10; V01/V16/V17). ER02: only a reviewed active public resource, accurately labeled purpose, account and prototype status; candidate/expired/withdrawn targets do not activate (US10; V15/V16). ER03: no personal payload, referrer, embedding/preconnect or cross-product identifier; original work retained (US08/US10; V07/V20). ER04: keyboard/screen-reader/new-tab/return/zoom/reflow and optional save guidance work (US05/US11; V01/V17/V18). ER05: failed or withdrawn destination is removed without breaking tools; resource clicks prove no assistance, enrollment or employment outcome (US10/OS01; V15/V20/V21/V23). All ER checks are PLANNED / NOT RUN. The later card fits existing resource scope and adds no account, data integration or release dependency.
+## Rooted Network acceptance baseline
+The current implementation sequence is RN1–RN6 in PHASES.md. These criteria replace earlier guest-only/account-deferral or no-matching scope statements; existing résumé safety and accessibility requirements remain applicable.
+
+| ID | Observable requirement | Checkpoint |
+| --- | --- | --- |
+| RN-A01 | Guest can prepare manually without account or incarceration disclosure; independent learning/documents do not gate progress | RN1 |
+| RN-A02 | All core navigation and actions support keyboard, visible focus, screen reader names/state, narrow mobile reflow and reduced motion | All |
+| RN-A03 | PDF requires valid email; cancel retains work; Print/local draft work without email; separate unchecked impact choice No still downloads and retains no address | RN2 |
+| RN-A04 | Yes impact choice permits one message; delete afterward or by 90 days; earlier deletion request works; no account/matching/marketing side effects | RN2 |
+| RN-A05 | File round trip preserves content; invalid/deep/oversized/unsupported import preserves current work; stale PDF cannot export after edits | RN2 |
+| RN-A06 | AI receives exact consented facts only; source linked individual acceptance; fact changes invalidate dependents; fabricated claims never export; service failure retains manual path | RN3 |
+| RN-A07 | Speak alone requests mic; Stop and status announced; denial/error retains Type; transcript correction/confirmation precede AI; no default audio retention | RN3 |
+| RN-A08 | Account/save choices separate; guest content not uploaded before confirmation; cross account access denied; stale cloud edits show conflict; recovery and sign out protect visible content | RN4 |
+| RN-A09 | Saved content export/deletion and account deletion follow documented active/backup retention; no sensitive content in logs | RN4 |
+| RN-A10 | Matching defaults No; exact profile preview and separate consent required; only confirmed fields shared; changed scope requires renewed review | RN5 |
+| RN-A11 | Each introduction requires approval; at dispatch recheck consent/profile/partner/job; revoke or suspension blocks pending/new access; partner cannot read private draft | RN5 |
+| RN-A12 | Verified current inventory only; show source/review/expiry and relevant reasons; unavailable jobs/partners removed; empty state promises no fictitious opportunity | RN5 |
+| RN-A13 | ATS lesson explains employer variation and truthful preparation with no score/pass guarantee; written lesson survives video failure; no mandatory course | RN6 |
+| RN-A14 | Intended users can prepare, identify an opportunity, understand sharing and approve/decline introduction; record actual failures and fixes | RN6 |
+
+Use synthetic data in automated/device checks. Report mocked and live model evaluation separately. No test is passed merely by writing its criterion. Severe fabricated claims, unauthorized disclosure, consent bypass or inaccessible core task blocks release.

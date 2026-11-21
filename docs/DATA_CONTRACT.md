@@ -1,12 +1,12 @@
 # Pondroot MVP data contract
 
-Contract version 1. This is a requirements specification for later implementation, not executable code, a database migration or evidence of passing validation. It makes the approved memory-only résumé, local editable file, consented AI boundary and operational-only server store explicit. The PRD contains the same contract. Schema version 1 identifies the future file format; PRD version 1.5 identifies this document revision.
+Contract version 2 — Rooted Network. Local editable file format remains version 1. This contract defines guest preparation, optional authenticated saving and consented employer connections.
 
 ## Ownership and storage boundaries
 
 | Data group | Authority and lifetime | May leave the browser |
 | --- | --- | --- |
-| Active résumé, source facts and review state | User-controlled browser memory; deliberately exported editable file only | Chosen current content in local PDF/print/draft; exact selected source facts to AI after consent |
+| Active résumé, source facts and review state | User-controlled browser memory; deliberate local file or explicitly chosen owner scoped cloud save | Chosen current content in local PDF/print/draft; exact selected source facts to AI after consent |
 | Contact details | User-entered browser memory and chosen local output | Excluded from normal AI, operational counters and analytics |
 | Pending/rejected suggestions, private reflection notes and processing state | Browser memory only; not copied automatically into résumé or draft | Only the exact user-reviewed selected facts cross the AI boundary; no automatic note sharing |
 | Document answers and session progress | Browser memory; cleared with session | No draft, AI, operational-record or analytics payload |
@@ -14,7 +14,7 @@ Contract version 1. This is a requirements specification for later implementatio
 | Rate counters and funded AI reservations | Server-only operational store with reviewed expiry | No résumé, contact, document answers or prompt/response text |
 | Analytics | Reviewed fixed event allowlist and retention | No personal content, local IDs, draft/AI IDs, filenames or identity linkage |
 
-There is no user/account table, server résumé table, résumé upload endpoint or browser autosave store. Local record IDs relate items within a draft; they are not visitor IDs and must never be used for telemetry or cross-session identity. Import does not upload file bytes or filenames.
+There is no hidden browser autosave. Accounts and server résumé records are allowed only through explicit account/save actions under the account contract below. Local record IDs relate items within a draft; they are not visitor IDs and must never be used for telemetry or cross-session identity. Import does not upload file bytes or filenames.
 
 ## Types and validation rules
 
@@ -70,7 +70,7 @@ Preview and employer export derive from included user-authored items and individ
 
 Export UTF-8 JSON locally with a neutral filename. Explain the file is unencrypted and may expose contact information, source facts and unapproved chosen wording. Import is atomic: validate the entire file and relationships first, show a minimal summary, obtain replacement confirmation, then create a new session generation. On failure/cancel keep current work untouched. Revalidate support, mark imported AI/AI-edited text needs_review, reset final review and require individual renewed acceptance; authored text remains editable without an AI approval gate. Unknown fields, duplicate IDs, dangling references and inconsistent states fail validation without execution or network requests.
 
-Exclude session guards, pending operations, PDF references/bytes, consent/request identifiers, provider envelopes, analytics identifiers, document answers/progress, private reflection notes, secrets, recordings and automatic job-description history. No account ID, server save location or hidden recovery token exists. User-entered source text can itself contain sensitive details; minimization notices do not guarantee automatic redaction.
+Exclude session guards, pending operations, PDF references/bytes, consent/request identifiers, provider envelopes, analytics identifiers, document answers/progress, private reflection notes, secrets, recordings and automatic job-description history. Local editable files exclude account IDs, server locations, authentication and recovery tokens. User-entered source text can itself contain sensitive details; minimization notices do not guarantee automatic redaction.
 
 ## Initial field and file bounds
 
@@ -104,3 +104,25 @@ These operational shapes define boundaries for later implementation, not a provi
 | DC08 | Document answers stay memory-only; expired/withdrawn editorial content cannot publish; analytics uses only existing approved fields and events | V14/V15/V19/V20/V21; implementation 5–8 |
 
 DC01–DC08 refine existing requirements, not new stories or completed tests. All checks are PLANNED / NOT RUN. Earlier JA01–JA12 and existing G0–G6 release gates remain unchanged. Fictional persona ages never become production data requirements.
+## Account and employer connection schema
+All server IDs are opaque. All sensitive reads/writes authorize the actor server side. Local draft IDs are not identity/analytics IDs.
+
+| Record | Fields | Rules |
+| --- | --- | --- |
+| UserAccount | id, verifiedEmail, identityProviderRef, status, createdAt, deletedAt | Managed authentication; no application password storage; account email distinct from PDF field |
+| SavedResume | id, ownerId, schemaVersion, contentRevision, content, createdAt, updatedAt, deletionState | Explicit Save online; owner only; encrypted in transit/at rest; conflict on stale revision |
+| CandidateProfile | id, ownerId, revision, selectedSkills, experienceSummary, locationPreferences, availability, contactRoute, visibility | Confirmed selected content only; private draft and contact excluded unless explicitly shared |
+| MatchingConsent | id, ownerId, profileRevision, state yes/no/withdrawn, sharingScope, policyVersion, consentedAt, withdrawnAt | Default No; active consent binds exact profile revision and scope; expanded fields require new review |
+| PartnerOrganization | id, verifiedName, displayName, reviewStatus, reviewer, reviewedAt, reviewDueAt, permissionStatus, suspensionState | Only approved current partners publish; role scoped access |
+| Opportunity | id, partnerId, title, location, requirements, applicationUrl, source, reviewedAt, expiresAt, status | Reviewed requirements/source, safe URL, expiry and withdrawal; no auto fetch arbitrary URLs |
+| Match | id, profileRevision, opportunityId, reasonCodes, state, createdAt | Reasons from confirmed skills/preferences; no protected trait or inferred justice history scoring |
+| Introduction | id, matchId, profileRevision, approvedFields, candidateApprovedAt, status, withdrawnAt | Candidate approves each introduction; dispatch checks active consent, partner and opportunity; idempotent retry |
+| ImpactFollowUp | id, email, consentVersion, consentedAt, collectedAt, deleteBy, messageStatus | Only when separate unchecked permission is Yes; one message; delete afterward or within 90 days; no résumé/profile linkage |
+| AccessAudit | actorId, actionCode, targetType/id, at, outcome | No content/email/transcript; documented minimal retention, access and backup limits |
+
+Account creation does not activate matching or upload guest data. Guest-to-cloud save shows exact content and requires confirmation. Failure keeps local work. Local import never imports identity or sharing permissions. Cloud loading revalidates schema, fact revisions and export eligibility.
+No impact permission: discard email after download authorization and create no retained contact record. Required PDF email does not imply an email delivery, account, employer disclosure or marketing permission.
+Partners access only a candidate approved introduction snapshot; no full draft, source reflections, transcript, document answers or rejected AI text. Revoke/suspend blocks new access, including pending dispatch; explain that received copies cannot be recalled.
+Clear resets guest session, not saved cloud records; Sign out clears visible sensitive session data; Delete saved résumé and Delete account are distinct deliberate operations. Delete account removes active access, revokes sharing and schedules content/backup expiry under an explicit retention schedule. Choose actual providers, retention periods, recovery process and operator before activation.
+Voice permission is requested only after Speak. Audio has no default storage. Transcript is editable and unconfirmed until approved. Remote transcription must disclose recipient/processing before send. Text fallback remains available.
+Contract acceptance extends DC01–DC08 with RN criteria in ACCEPTANCE.md; earlier implementation phase references are historical mappings and PHASES.md supplies the current sequence.
