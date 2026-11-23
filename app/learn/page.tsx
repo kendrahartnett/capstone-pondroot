@@ -1,3 +1,3 @@
 import { ToolPreview } from '../components/tool-preview';
 export const metadata = { title: 'Transparent Hiring Information' };
-export default function Page() { return <ToolPreview title="Transparent Hiring Information"><p>Explore what you need to know, where to go, and how to tailor your résumé truthfully.</p><p>Written guidance and interview practice will be added in a later build phase.</p></ToolPreview>; }
+export default function Page() { return <ToolPreview title="Transparent Hiring Information" titleEs="Información clara sobre contratación" childrenEs={<><p>Conoce lo que necesitas saber, dónde buscar y cómo adaptar tu currículum con honestidad.</p><p>La guía escrita y la práctica para entrevistas se agregarán en una fase posterior.</p></>}><p>Explore what you need to know, where to go, and how to tailor your résumé truthfully.</p><p>Written guidance and interview practice will be added in a later build phase.</p></ToolPreview>; }
