@@ -20,7 +20,7 @@ test('accessible home, keyboard skip and responsive surfaces',async({page})=>{
  expect((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze()).violations).toEqual([]);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await page.getByText('Will my work be saved?',{exact:true}).click();
- await expect(page.getByText('Your work stays in this tab. Closing or refreshing it can lose your work. Saving files is not available yet.')).toBeVisible();
+ await expect(page.getByText('Your work stays in this tab. Closing or refreshing it can lose your work. Use Save editable draft in the résumé tools.')).toBeVisible();
  await page.evaluate(()=>document.documentElement.style.fontSize='200%');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
