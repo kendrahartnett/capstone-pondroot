@@ -19,6 +19,6 @@ export default function Home() {
  <section className="next-steps" aria-labelledby="steps"><h2 id="steps">{t('Need help?','¿Necesitas ayuda?')}</h2><div className="cards">
  <article className="card"><h3>{t('Documents','Documentos')}</h3><p>{t('Learn what you may need for work.','Conoce qué documentos podrías necesitar.')}</p><Link className="button secondary" href="/documents">{t('See document help','Ver ayuda con documentos')}</Link></article>
  <article className="card"><h3>{t('Hiring information','Información de contratación')}</h3><p>{t('Learn about ATS and applying online.','Conoce los sistemas ATS y cómo solicitar empleo en línea.')}</p><Link className="button secondary" href="/learn">{t('Explore hiring','Conocer el proceso')}</Link></article></div>
- <details className="help"><summary>{t('Will my work be saved?','¿Se guarda mi trabajo?')}</summary><p>{t('Your work stays in this tab. Closing or refreshing it can lose your work. Saving files is not available yet.','Tu trabajo permanece en esta pestaña. Si la cierras o actualizas, puedes perderlo. Aún no puedes guardar archivos.')}</p></details>
+ <details className="help"><summary>{t('Will my work be saved?','¿Se guarda mi trabajo?')}</summary><p>{t('Your work stays in this tab. Closing or refreshing it can lose your work. Use Save editable draft in the résumé tools.','Tu trabajo permanece en esta pestaña. Si la cierras o actualizas, puedes perderlo. Usa la opción para guardar un borrador en las herramientas del currículum.')}</p></details>
  </section></main>;
 }

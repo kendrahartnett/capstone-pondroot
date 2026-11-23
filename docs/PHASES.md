@@ -1,5 +1,5 @@
 # Pondroot phases and checkpoints
-November 20, 2026 — Rooted Network implementation sequence
+November 20, 2026 — Pondroot implementation sequence
 
 The product releases are MVP, Phase 2 improvement and Phase 3 network growth. The implementation checkpoints below divide MVP into reviewable work. They do not claim implementation or authorize starting a phase.
 
@@ -18,6 +18,10 @@ Reestimate the expanded scope before setting a delivery date. Verified partners 
 Before each checkpoint read AGENTS, README, BUILD_BRIEF, ACCEPTANCE, DATA_CONTRACT and SCREEN_FLOW. Inspect Git status and remote baseline; preserve unrelated/private work; use a fresh codex/ branch when implementation is requested. Run meaningful actual checks, present a preview, behavior, limits and owner walkthrough. After explicit approval commit only reviewed files and push, verify the tip and stop. Merge/deployment and the next phase require their own instruction.
 Historical evidence remains in phase review records and Git; this sequence replaces earlier implementation ordering without erasing history.
 
-## RN1 review evidence
+## RN2 review status
+
+RN2 was approved by the owner on November 22, 2026, with commit and push authorized. Local drafts, PDF, Print and optional impact consent are working. Neon development storage, early deletion, one-time contact retrieval and scheduled cleanup are verified with synthetic data. Final closure checks on November 23 passed: 30 browser checks, 8 live synthetic Neon checks, typecheck, lint and production build. See [RN2 review](RN2_REVIEW.md) for evidence and limits, and [impact operations](IMPACT_OPERATIONS.md) for owner instructions and production activation checks. Production is unchanged. RN3 AI/voice has not started.
+
+## RN1 recorded evidence
 
 Owner approved the Rooted Network visual direction on November 20, 2026, then requested shorter home copy and an English/Español switch. The revised home and navigation were reviewed in desktop and narrow mobile browser views. Rooted Network navigation, résumé preparation routing, Spanish selection, page language updates, visible keyboard focus and 320 CSS pixel reflow were observed. The Spanish switch currently translates the home and navigation and clearly states that the remaining tools are still in English. Typecheck, lint and production build passed on November 21, 2026. Commit and push were explicitly approved; their results are recorded in the commit history and remote branch.
