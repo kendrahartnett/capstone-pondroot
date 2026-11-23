@@ -13,7 +13,6 @@ export default function Home() {
  <Link className="button primary" href="/resume/start">{draft.contentRevision?t('Continue my résumé','Seguir con mi currículum'):t('Find my strengths','Descubrir mis habilidades')}</Link>
  <Link className="direct" href="/resume/edit">{t('Write my résumé','Crear mi currículum')}</Link>
  <p className="preview-note">{t('No account needed.','No necesitas una cuenta.')}</p>
- {es && <p className="language-note">Las herramientas aún están en inglés.</p>}
  </div></section>
  <section className="network-section" id="rooted-network"><p className="eyebrow" lang="en">Rooted Network</p><h2>{t('A path to work.','Un camino al empleo.')}</h2><p>{t('Employer connections are coming. Start with your résumé today.','Pronto podrás conectar con empleadores. Hoy puedes preparar tu currículum.')}</p></section>
  <section className="next-steps" aria-labelledby="steps"><h2 id="steps">{t('Need help?','¿Necesitas ayuda?')}</h2><div className="cards">
