@@ -1,8 +1,8 @@
-import {dateText,visible,type Draft,type ReviewedText} from './model';
+import {dateText,visible,supported,type Draft,type ReviewedText} from './model';
 export type ResumeBlock={kind:'name'|'heading'|'body'|'bullet';text:string;edit:string};
 export function resumeBlocks(d:Draft,es=false):ResumeBlock[]{
  const groups:Record<string,ResumeBlock[]>={};
- const text=(x?:ReviewedText)=>x?.included&&x.origin==='user'&&x.review.state==='authored'?x.text:'';
+ const text=(x?:ReviewedText)=>x?.included&&supported(x,d)?x.text:'';
  const block=(kind:ResumeBlock['kind'],value:string|undefined,edit:string):ResumeBlock[]=>value?.trim()?[{kind,text:value,edit}]:[];
  const lines=(items:ReviewedText[],edit:string)=>visible(items).flatMap(x=>block('bullet',text(x),edit));
  const group=(key:string,title:string,edit:string,items:ResumeBlock[])=>{groups[key]=items.length?[...block('heading',title,edit),...items]:[];};

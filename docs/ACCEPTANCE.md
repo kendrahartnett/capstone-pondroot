@@ -9,7 +9,7 @@ These requirements are planned, not passed. Use synthetic fixtures and sanitized
 | US01 | Start as guest | Independent tools; temporary-work/save explanation; no account or document gate. |
 | US02 | Recognize experience | GED and paid/informal/institutional/caregiving/volunteer experience without mandatory conventional history, sensitive disclosure or invented facts; manual path. |
 | US03 | Helpful truthful wording | Exact selected-data consent, normal contact exclusion, source support and no material fabricated claims. |
-| US04 | Control wording | Per-item Use/Edit/Leave out, explicit edited confirmation, undo/remove, no pending/stale export and dependent approval invalidation. |
+| US04 | Control wording | Each suggested part starts unchecked, may be edited, and needs its own check plus Use checked parts; no pending/stale export and dependent approval invalidation. |
 | US05 | Complete and edit | Applicable sections editable, optional empties omitted, shared current export model, navigation retention and live preview. |
 | US06 | Continue locally | Draft distinct from PDF; sensitivity explained; safe local replacement; failures preserve work; save-clear-open-revise on tested devices. |
 | US07 | Use document | Readable selectable complete PDF, actual layout/download/file-location checks, clean print/cancel/fallback; no false success/ATS claim. |
@@ -82,7 +82,7 @@ Approved November 19, 2026. JA IDs are stable refinements of existing US/V IDs, 
 | JA01 | US01/US02 | S01/S03 | V01/V03 | Given a new session, guided discovery and Go straight to my résumé both reach an editable résumé without account, document, lesson or incarceration answers. Switching routes preserves entered work. |
 | JA02 | US02 | S04/S07 | V01/V02/V04 | Given only GED and housekeeping facts, no employer, date, duty, institutional history, achievement or credential is inferred. Unknown optional details can be omitted and manual completion works. |
 | JA03 | US03 | S05 | V03/V05/V20 | Opening or canceling consent sends no AI request. Explicit send transmits only displayed selected facts. Unselected text and normal contact fields are absent; pasted sensitive text is reviewed. |
-| JA04 | US04 | S06 | V02/V03/V04 | Known unsupported suggestions are withheld. Each displayed suggestion has source support and no preselection or Select all. Edit requires explicit confirmation; rejecting every item still permits continuation. |
+| JA04 | US04 | S06 | V02/V03/V04 | Known unsupported suggestions are withheld. Each displayed suggestion has source support and an unchecked confirmation box. Use checked parts adds only checked current parts, including edits; leaving every item unchecked still permits continuation. |
 | JA05 | US04/US05 | S06/S08 | V04/V06 | Changing/deleting a source invalidates dependent approvals; content edits invalidate PDF/final review. Pending/stale claims do not enter export and late responses cannot restore them. |
 | JA06 | US05/US11 | S07 | V01/V17 | Internal navigation and mobile Edit/Preview preserve current content and position. Preview Edit moves focus to the matching label. Optional introduction and empty sections do not block completion. |
 | JA07 | US06 | S09/S10 | V08/V09 | Save, locate, clear, reopen and revise a real editable draft on supported phone/computer. Invalid, oversized, wrong-type, wrong-person replacement cancellation and unsupported imports leave current work unchanged. Imported approval flags are not trusted. |

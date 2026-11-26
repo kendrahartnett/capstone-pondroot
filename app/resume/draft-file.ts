@@ -4,7 +4,10 @@ import type {Draft} from './model';
 const id=z.string().regex(/^[A-Za-z0-9_-]{1,64}$/);
 const revision=z.number().int().nonnegative().safe();
 const date=z.strictObject({year:z.number().int().min(1900).max(2100),month:z.number().int().min(1).max(12).optional()});
-const text=z.strictObject({id,text:z.string().max(2000),included:z.boolean(),origin:z.literal('user'),sourceRefs:z.array(z.strictObject({factId:id,factRevision:revision.min(1)})).max(20),review:z.strictObject({state:z.literal('authored'),reviewedContentRevision:z.null()})});
+const text=z.strictObject({id,text:z.string().max(2000),included:z.boolean(),origin:z.enum(['user','ai','ai_edited']),sourceRefs:z.array(z.strictObject({factId:id,factRevision:revision.min(1)})).max(20),review:z.strictObject({state:z.enum(['authored','accepted','needs_review']),reviewedContentRevision:revision.nullable()})}).superRefine((item,ctx)=>{
+ if(item.origin==='user'&&(item.review.state!=='authored'||item.review.reviewedContentRevision!==null))ctx.addIssue({code:'custom',message:'Invalid user review state'});
+ if(item.origin!=='user'&&(!item.sourceRefs.length||item.review.state==='authored'||(item.review.state==='accepted'&&item.review.reviewedContentRevision===null)))ctx.addIssue({code:'custom',message:'Invalid suggestion review state'});
+});
 const short=z.string().max(200).optional();
 const base={id,included:z.boolean(),sourceFactIds:z.array(id).max(100)};
 const schema=z.strictObject({
@@ -34,5 +37,7 @@ export function parseDraft(raw:string):Draft{
  if(count>200||new Set(file.resume.sectionOrder).size!==file.resume.sectionOrder.length)throw new Error('This draft exceeds its limits.');
  const facts=new Map(file.sourceFacts.map(f=>[f.id,f.revision]));
  const refs=(v:unknown):void=>{if(!v||typeof v!=='object')return;const obj=v as Record<string,unknown>;if(Array.isArray(obj.sourceFactIds)&&obj.sourceFactIds.some(x=>!facts.has(x)))throw new Error('Missing source facts.');if(Array.isArray(obj.sourceRefs)&&obj.sourceRefs.some(x=>facts.get(x.factId)!==x.factRevision))throw new Error('Outdated source facts.');Object.values(obj).forEach(x=>Array.isArray(x)?x.forEach(refs):refs(x));};refs(file.resume);
- return {...file.resume,sourceFacts:file.sourceFacts,contentRevision:file.contentRevision};
+ const reset=(item:typeof file.resume.skills[number])=>item.origin==='user'?item:{...item,review:{state:'needs_review' as const,reviewedContentRevision:null}};
+ const resume=file.resume;
+ return {...resume,introduction:resume.introduction?reset(resume.introduction):undefined,skills:resume.skills.map(reset),experiences:resume.experiences.map(x=>({...x,bullets:x.bullets.map(reset)})),education:resume.education.map(x=>({...x,credential:x.credential?reset(x.credential):undefined,details:x.details.map(reset)})),training:resume.training.map(x=>({...x,name:x.name?reset(x.name):undefined,details:x.details.map(reset)})),additionalSections:resume.additionalSections.map(x=>({...x,entries:x.entries.map(reset)})),sourceFacts:file.sourceFacts,contentRevision:file.contentRevision};
 }

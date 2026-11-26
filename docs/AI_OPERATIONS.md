@@ -1,0 +1,23 @@
+# RN3 AI writing setup and limits
+
+The conversation-first résumé draft uses Claude Sonnet through `app/api/discover-skills/route.ts`. The browser sends only the exact confirmed examples shown on the consent screen. Contact fields, the full résumé, and local draft files are not sent. The client and server block obvious email addresses and phone numbers within selected story text; other sensitive text still requires the user's review. A returned suggestion is not résumé content until the user checks that specific part and chooses **Use checked parts**. Imported AI wording needs renewed review. Manual editing, printing, and files remain usable when AI is unavailable.
+
+## Current activation state
+
+AI is **off by default**. No model call was made during implementation. Synthetic mocked responses test consent, source links, user selection, and stale fact handling. The route reports unavailable until all server variables are present and `PONDROOT_AI_ENABLED=true`. Do not enable it merely because an API key has credit.
+
+## Development setup
+
+1. Create a dedicated restricted `pondroot_ai_app` role on the intended Neon development branch. It must have no direct table privileges. As owner, apply [db/ai-budget.sql](../db/ai-budget.sql) to that development branch only. Verify the role can execute `pondroot_ai.reserve(uuid)` and cannot select budget tables or any impact/resume data. Do not reuse the impact role or its URL.
+2. In ignored `.env.local`, set `ANTHROPIC_API_KEY`, `AI_DATABASE_URL`, and `PONDROOT_AI_APP_ORIGIN` for the local server. Do not paste the key into chat, put it in a `NEXT_PUBLIC_` variable, or commit the file. Keep `PONDROOT_AI_ENABLED=false` until the database and model checks pass.
+3. Review provider terms, data handling, model version, current price, and exact prompt/schema. Run a bounded synthetic smoke set with a separate written spend limit. Turn the switch on only for that reviewed development run. Production remains off until release gates are met.
+
+## Hard limits in this build
+
+The database reservation is atomic and table-blind to the app role: at most **3 reservations per minute**, **20 per UTC day**, **$0.05 reserved per call**, and **$1.00 reserved per UTC day**. Failed or uncertain calls keep their reservation. The route allows up to 20 selected facts and 12,000 characters, then rejects requests above **4,000 counted input tokens**. It caps the model at **800 output tokens**. The daily reservation is a local safety ceiling, not a provider billing limit or a promise that API prices cannot change. Recheck pricing before activation; disable the route if model price or billing behavior changes.
+
+The prompt forbids invented employers, titles, dates, credentials, metrics, duties, and achievements. Response schema and source IDs are validated before display. These mechanical checks cannot prove that every phrase is factually supported. Individual human confirmation and the live model evaluation in [ACCEPTANCE.md](ACCEPTANCE.md) remain mandatory. A serious fabricated claim blocks activation.
+
+The budget tables store opaque reservation IDs, dates, counts, and reserved microdollars only. They store no résumé text, contact data, IP address, or provider response. Establish a 90-day operational metadata cleanup and verify it before production use. Review abuse controls for shared networks and the exact provider retention policy before release.
+
+Official references consulted during implementation: [Claude Messages API](https://platform.claude.com/docs/en/api/messages), [token counting](https://platform.claude.com/docs/en/build-with-claude/token-counting), [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs), [model IDs](https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions), and [pricing](https://platform.claude.com/docs/en/about-claude/pricing).
