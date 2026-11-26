@@ -1,6 +1,8 @@
 # Pondroot detailed screen flow
 November 20, 2026 — Prepare, Apply, Connect through Rooted Network
 
+November 26 direction: keep the guest preparation flow. Rooted Network browse must show an honest zero-employer state until real verified opportunities exist. Add a public Partner With Pondroot route for employer and workforce inquiries with a secure, minimal-data process. Candidate profile and introduction screens remain designed future states; no account, matching, or sharing is triggered by browsing. See PHASES.md for the revised RN3–RN7 checkpoints.
+
 ## Information architecture
 Primary destinations: My next steps, Build my résumé, Rooted Network, Check my documents, Transparent Hiring Information, Sign in/My space. Secondary support links use an accessible menu or expanded details. Preserve work across internal navigation. Show one dominant next action. Use ordinary browser Back behavior without losing entered data.
 

@@ -1,5 +1,5 @@
 # Pondroot build brief
-November 20, 2026 — Rooted Network product baseline
+November 26, 2026 — partnership-ready product baseline
 
 ## Purpose
 Pondroot is a trusted bridge between overlooked talent and real employment opportunities. Help justice impacted adults turn real experience into recognized skills, prepare applications and choose connections with verified employers. Résumé creation supports this outcome; a completed résumé alone is not an employment result.
@@ -13,9 +13,10 @@ Provide editable contact, introduction, skills, experience, education and option
 Browser generated PDF and Print use the same eligible reviewed content. Download PDF requires an email; Print and Save editable draft do not. Separately ask unchecked permission for one impact follow up. No still downloads and the address is discarded; Yes permits one message, then deletion, within 90 days at most. No marketing, account or matching consent is implied. Do not automatically email or upload the PDF. Explain file location and PDF versus editable draft; preserve work on failure or cancellation.
 Guest state is memory only with deliberate versioned local files; no hidden browser persistence. Import validates atomically before replacement. Clear invalidates late AI/import/PDF work.
 
-## Accounts and Rooted Network
-MVP includes optional managed authentication, secure owner scoped cloud résumé saving, simple personal area, candidate profile and a small verified partner pilot. Account creation does not publish a profile. User chooses Yes or No to matching, default No, previews exact shared fields and approves each introduction. Partners receive only that approved profile. Explain why an opportunity may fit using confirmed skills/preferences. No guaranteed interview or job, inferred justice history scoring or automatic application submission.
-Verify organizations, name/logo permission, jobs, source, requirements and expiry before publication. Honest empty states remain useful when inventory is unavailable. Partner suspension and consent withdrawal block new access; explain already received information cannot be recalled. Initial matching may be operator assisted; no employer self service portal is needed for MVP.
+## Rooted Network foundation
+Initial launch is partnership-ready and useful when the network has zero employers. Build private employer and opportunity records, verification evidence/status, review and expiry controls, protected administration, and a secure Partner With Pondroot inquiry for employers and workforce organizations. Browse shows only real, verified, current opportunities; otherwise it offers an honest empty state and practical preparation paths. No researched organization or synthetic opening is represented as a partner or available job.
+
+Design an optional candidate-profile schema and the future exact-share, per-introduction consent and human-mediated referral flow now. Activate these only after documented partnerships, confirmed openings, named operations ownership, secure retention/deletion, and authorization review. Account creation does not publish a profile. No automatic matching, employer candidate search, eligibility decision or application submission.
 
 ## Independent guidance
 Transparent Hiring Information includes ATS, online applications, truthful tailoring, file upload versus submission, written interview practice and official resources. Explain employer variation; no ATS score or pass guarantee. Written lessons stand alone; optional reviewed videos load only on request. Document help uses reviewed deterministic official guidance, general A OR B+C alternatives and uncertainty routing; no legal verdict, scans or document numbers. Neither learning nor documents gate other tools. Additional help and services can link to a reviewed external project with destination/prototype disclosure and no automatic data handoff.

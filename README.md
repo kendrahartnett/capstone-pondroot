@@ -32,10 +32,11 @@ Pondroot is being delivered in bounded, reviewable checkpoints. The repository c
 | --- | --- | --- |
 | RN1 — Design alignment | Complete | Rooted Network home, responsive navigation, Stillwater visual system, English/Spanish interface |
 | RN2 — Résumé files | Complete | Manual résumé journey, live preview, editable local drafts, browser PDF, print, download consent, and short-lived impact follow-up storage |
-| RN3 — AI and voice | Next | Supported writing suggestions, conversational type/voice discovery, transcript confirmation, evidence-linked review, and manual fallback |
-| RN4 — Accounts | Planned | Optional sign-in, explicit cloud résumé saving, personal area, recovery, export, and deletion |
-| RN5 — Rooted Network | Planned | Verified partner inventory, matching opt-in, exact profile preview, and user-approved introductions |
-| RN6 — Guidance and release | Planned | ATS and application lessons, document help, support resources, written interview practice, and end-to-end release evidence |
+| RN3 — DiscoverSkills | In progress | Typed fact confirmation first; evidence-linked AI and optional voice in later reviewed increments |
+| RN4 — Employment preparation | Planned | ATS, application, document and interview guidance with reviewed support links |
+| RN5 — Partnership foundation | Planned | Private verified employer/opportunity records, protected administration and secure partner inquiries |
+| RN6 — Opportunity discovery | Planned | Real verified opportunities when available, honest empty state otherwise |
+| RN7 — Connection design | Planned | Optional profile and consent architecture; activation waits for real partnerships |
 
 See [docs/PHASES.md](docs/PHASES.md) for checkpoint scope and evidence requirements.
 

@@ -1,5 +1,5 @@
 # Pondroot phases and checkpoints
-November 20, 2026 — Pondroot implementation sequence
+November 23, 2026 — Network-first implementation sequence
 
 The product releases are MVP, Phase 2 improvement and Phase 3 network growth. The implementation checkpoints below divide MVP into reviewable work. They do not claim implementation or authorize starting a phase.
 
@@ -7,16 +7,24 @@ The product releases are MVP, Phase 2 improvement and Phase 3 network growth. Th
 | --- | --- | --- |
 | RN1 Design alignment | Mural inspired welcome, simple navigation and calm responsive workspace | Desktop/mobile walkthrough, keyboard/focus/reflow and copy review |
 | RN2 Files | Local draft, PDF, Print and required download email with separate impact permission | Round trip, cancellation, malformed files, stale output, PDF content and print without email |
-| RN3 AI and voice | Supported wording, conversational speak/type and transcript confirmation | Separate mock/live AI evidence, exact consent, fact invalidation, voice denial/failure and accessibility |
-| RN4 Accounts | Optional sign in, explicit cloud save, personal area, recovery/export/deletion | Cross account authorization, concurrent edits, interrupted upload, sign out and deletion |
-| RN5 Rooted Network | Verified inventory, profile preview, matching opt in and approved introductions | Consent revocation, partner suspension, expiry, access isolation and honest empty states |
-| RN6 Guidance and end to end release | ATS/application lessons, documents, resources and complete bridge journey | Editorial review, intended user tasks, device checks and release risk review |
+| RN3 DiscoverSkills | Begin with typed fact confirmation; then AI wording, optional voice, transcript review and application help in reviewed increments | No invented claims, exact AI consent, source links, individual review, failure fallback, bilingual and access checks |
+| RN4 Employment preparation | ATS/application guidance, document readiness, written interview practice and reviewed support links | Editorial/source review, plain-language comprehension, accessibility and no resume gate |
+| RN5 Partnership foundation | Private employer/opportunity records, verification evidence/status, review/expiry controls, protected admin access and secure partner inquiry | Authorization, validation, stale/expired publication blocks, abuse protection and zero-employer operation |
+| RN6 Opportunity discovery | Accessible browse/detail for real verified active opportunities and an honest empty state | No invented listings, current evidence, safe links, bilingual/mobile/access checks |
+| RN7 Candidate connection design | Optional profile schema, exact share preview and introduction workflow design | Privacy/retention/consent review; no automatic profile publication or dispatch |
+| Activation gate | Verified partnership and operational readiness before live introductions | Documented agreement, authorized contact, confirmed opportunity, operator, response and concern process |
 
-MVP includes RN1–RN6. Phase 2 expands coaching, readiness checklists and pilot quality. Phase 3 adds moderated employer self service and broader matching based on pilot evidence. AI interview simulation, automatic submission, broad marketplace and paid coaching are outside MVP.
+Initial launch includes RN1–RN6 and remains useful with zero employers. RN7 designs future candidate connection without activating it. Live opportunity publication and mediated introductions require the activation gate. Employer self service, candidate search, automated matching or eligibility, compatibility percentages, automatic submission and broad aggregation remain deferred.
 Reestimate the expanded scope before setting a delivery date. Verified partners and an operational owner are required for a real connection pilot. Mock employers cannot substitute for that gate.
 
-Before each checkpoint read AGENTS, README, BUILD_BRIEF, ACCEPTANCE, DATA_CONTRACT and SCREEN_FLOW. Inspect Git status and remote baseline; preserve unrelated/private work; use a fresh codex/ branch when implementation is requested. Run meaningful actual checks, present a preview, behavior, limits and owner walkthrough. After explicit approval commit only reviewed files and push, verify the tip and stop. Merge/deployment and the next phase require their own instruction.
+Before each checkpoint read AGENTS, README, BUILD_BRIEF, ACCEPTANCE, DATA_CONTRACT and SCREEN_FLOW. Inspect Git status and remote baseline; preserve unrelated/private work; use a fresh codex/ branch when implementation is requested. Run meaningful actual checks, present a preview, behavior, limits and owner walkthrough. After explicit approval commit only reviewed files and push, verify the tip and stop. Merge/deployment, outreach and the next phase require their own instruction.
 Historical evidence remains in phase review records and Git; this sequence replaces earlier implementation ordering without erasing history.
+
+## Direction approved November 26
+
+Pondroot is partnership-ready at launch and remains useful with zero employers. RN3 begins with a small DiscoverSkills increment. Later reviewed checkpoints add private employer and opportunity records, protected administration, honest opportunity browsing, and a secure Partner With Pondroot inquiry. Candidate profiles and introductions are designed now and activated only with verified partnerships and separate candidate consent. Network research informs those checkpoints while RN3 proceeds.
+
+The first RN3 slice adds typed example confirmation, editing and removal in English and Spanish. Confirmed examples remain separate from résumé output. Owner approved this slice on November 26. Final checks passed: 33 browser tests across desktop/mobile/320px, TypeScript, lint and production build. AI suggestions and voice remain future RN3 increments; no live model call was made.
 
 ## RN2 review status
 

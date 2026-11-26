@@ -1,3 +1,3 @@
-import {Discovery} from '../workspace';
+import {DiscoverSkills} from '../discover-skills';
 export const metadata={title:'Your experience'};
-export default Discovery;
+export default DiscoverSkills;
