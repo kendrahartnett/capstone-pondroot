@@ -16,16 +16,16 @@ One plain question: Tell us about something you have done. Explain that work, ho
 Show editable transcript or typed answer. Confirm these facts creates current source records; Edit/Delete/Back remain available. Unconfirmed transcript is not evidence. Ask concrete follow ups only for missing relevant facts; unknown dates are allowed. No incarceration or gap explanation requirement. Risk: misheard facts; confirmation must be deliberate.
 
 ## S04 AI consent and suggestion review
-Review exact outgoing selected facts, processor explanation and Send/Cancel. No send on open. Return source linked suggestions one at a time or a small manageable group. Use this, Edit, Leave out; edited text requires Use my edited wording. Explain skill meaning and supporting fact. Back/editor preserves work. Source edits flag dependent items for renewed review. Provider limit/error offers manual writing.
+From the conversation, show the exact confirmed words selected for AI. **Continue with these words** is the explicit send; opening the panel sends nothing. Return a short résumé draft with an introduction, skills, and task wording only when supported. Show each part beside its source and an unchecked **Use this in my résumé** box. Let the user edit wording in place, then choose **Use checked parts** once. Unchecked parts stay out. Editing a source removes dependent old wording. Provider limit/error offers manual writing. Never infer employer, date, title, credential, or achievement.
 
 ## S05 Résumé workspace
 Labeled editable contact, introduction, skills, experience, education and optional training/additional sections. Add/remove/exclude entries with clear recovery. No guessed filler. Desktop live preview; mobile Edit/Preview retains position. Help me write routes to selected fact consent. Review résumé leads S06. Save editable draft is always deliberate. Risk: form overload; progressive section disclosure and short examples.
 
 ## S06 Review
-Show exact employer facing content, optional omissions and any unapproved content requiring action. Edit focuses relevant field. Generate actual PDF preview from current content revision; stale results discarded. Continue file actions S07. Never force unsupported filler or shrink unreadable content to one page.
+Show exact employer-facing content and a single **Edit résumé** link. Unapproved content is omitted and clearly flagged. The visible résumé is the final review surface. The two main actions below it are **Download PDF** and **Print résumé**. Never force unsupported filler or shrink unreadable content to one page.
 
 ## S07 File actions
-Separate Download PDF, Print résumé, Save editable draft, Edit. Download opens S08; Print opens native print view without email; local draft explains unencrypted personal data, then downloads versioned file. Explain where files may be found without claiming disk save or printer success. Failed/cancelled actions preserve work.
+**Download PDF** prepares the current version and opens S08 when ready; there is no separate Prepare button. **Print résumé** opens the native print view without email. Save editable draft remains an optional secondary control in the editor. File-location help and next steps are expandable details. Failed/cancelled actions preserve work; late PDF work cannot restore a cleared session.
 
 ## S08 Download email
 Ask valid email for Download PDF and explain impact follow up purpose. Separate unchecked permission: May Pondroot email you once to ask whether this helped you move toward work? No/unchecked still downloads and address is discarded; Yes authorizes one message with deletion afterward or within 90 days. Show privacy/deletion contact. Download does not create account, matching permission or automatic emailed résumé. Cancel returns S07. Some print dialogs offer Save as PDF; describe accurately.

@@ -26,7 +26,7 @@ The interface is designed for mobile use, limited digital confidence, lower read
 
 ## Current build status
 
-Pondroot is being delivered in bounded, reviewable checkpoints. The repository currently contains the completed RN1 and RN2 foundations. RN3 has not started.
+Pondroot is being delivered in bounded, reviewable checkpoints. RN1 and RN2 are complete. RN3 is in progress.
 
 | Checkpoint | Status | Outcome |
 | --- | --- | --- |
@@ -58,7 +58,7 @@ See [docs/PHASES.md](docs/PHASES.md) for checkpoint scope and evidence requireme
 
 ## What is intentionally not implemented yet
 
-- AI-assisted résumé writing or skill suggestions.
+- Live AI-assisted résumé writing. The conversation, exact consent, and draft review interface is implemented, but model calls remain disabled until provider and budget setup and live evaluation.
 - Voice transcription or conversational coaching.
 - User accounts, authentication, cloud résumé storage, or a persistent dashboard.
 - Candidate profiles, employer matching, or partner introductions.
@@ -122,7 +122,7 @@ Current technology:
 - Neon serverless storage only for separately consented impact follow-up records.
 - Playwright and axe-core for journey, responsive, keyboard, accessibility, file, PDF, and consent checks.
 
-Future Claude Sonnet integration will use a server-only boundary, exact selected-data consent, numeric usage caps, source-linked suggestions, and strict stale-response protection. Future account and Rooted Network data will use separate authorization and consent domains; guest work must never be uploaded automatically.
+The server-only Claude Sonnet route is disabled by default. It validates exact selected-data consent, reserves an atomic daily budget in separate Neon operations storage, checks input tokens, caps output tokens, and returns source-linked draft parts for explicit user confirmation. No live model call was made for this implementation. See [AI operations](docs/AI_OPERATIONS.md) for setup, numeric limits, and activation checks. Future account and Rooted Network data will use separate authorization and consent domains; guest work must never be uploaded automatically.
 
 ## Local development
 

@@ -4,6 +4,8 @@ import Link from 'next/link';
 import {useState} from 'react';
 import {useLanguage} from '../language';
 import {useResume} from './provider';
+import {removeBasedOnFact} from './model';
+import {Suggestions} from './suggestions';
 import './resume.css';
 
 export function DiscoverSkills() {
@@ -26,38 +28,33 @@ export function DiscoverSkills() {
       }]
     }));
     setAnswer('');
-    setNotice(t('Your example was added. It is not in your résumé yet.', 'Se agregó tu ejemplo. Todavía no está en tu currículum.'));
+    setNotice(t('Added to your story.', 'Se agregó a tu historia.'));
   }
 
   function saveEdit(id: string) {
     const text = editText.trim();
     if (!text) return;
-    update(current => ({
-      ...current,
-      sourceFacts: current.sourceFacts.map(fact => fact.id === id ? {...fact, text, revision: fact.revision + 1} : fact)
-    }));
+    update(current => ({...removeBasedOnFact(current,id),sourceFacts:current.sourceFacts.map(fact=>fact.id===id?{...fact,text,revision:fact.revision+1}:fact)}));
     setEditing(null);
-    setNotice(t('Your example was updated.', 'Se actualizó tu ejemplo.'));
+    setNotice(t('Your example was updated. Wording based on its old version was removed from the résumé.', 'Se actualizó tu ejemplo. Se quitaron del currículum las palabras basadas en la versión anterior.'));
   }
 
   return <main id="main" tabIndex={-1} className="tool-page discovery-page">
     <p className="eyebrow">DiscoverSkills</p>
-    <h1>{t('Tell us about something you did', 'Cuéntanos algo que hiciste')}</h1>
-    <p>{t('Work, school, helping someone, or caring for others can count. What did you do?', 'Puede ser del trabajo, la escuela, algo que hiciste para ayudar o cuidar a alguien. ¿Qué hiciste?')}</p>
-    <p>{t('Use your own words. Leave out any detail you do not want to share.', 'Usa tus propias palabras. No incluyas detalles que no quieras compartir.')}</p>
+    <h1>{t('Tell me what you have done', 'Cuéntame qué has hecho')}</h1>
+    <p>{t('Tell me about work, school, or helping others. What did you do? Leave out private details.', 'Cuéntame del trabajo, la escuela o cómo ayudaste a otros. ¿Qué hiciste? Omite los datos privados.')}</p>
+    <details><summary>{t('Need an idea?','¿Necesitas una idea?')}</summary><p>{t('You could start with a task: “I cleaned rooms and changed linens.” Write only what you really did.','Puedes empezar con una tarea: «Limpié habitaciones y cambié las sábanas». Escribe solo lo que realmente hiciste.')}</p></details>
     <label className="resume-field" htmlFor="discovery-answer">
       <span>{t('Something I did', 'Algo que hice')}</span>
       <textarea id="discovery-answer" rows={5} maxLength={2000} value={answer} onChange={event => setAnswer(event.target.value)} />
     </label>
     <button type="button" disabled={!answer.trim() || facts.length >= 100} onClick={confirm}>
-      {t('Confirm this example', 'Confirmar este ejemplo')}
+      {t('Add to my story', 'Agregar a mi historia')}
     </button>
-    <p className="preview-note">{t('You can add another example or continue at any time.', 'Puedes agregar otro ejemplo o continuar cuando quieras.')}</p>
     {notice && <p role="status">{notice}</p>}
 
     {facts.length > 0 && <section aria-labelledby="confirmed-examples" className="discovery-examples">
-      <h2 id="confirmed-examples">{t('My confirmed examples', 'Mis ejemplos confirmados')}</h2>
-      <p>{t('These notes stay separate from your résumé. You choose what to include.', 'Estas notas no aparecen en tu currículum. Tú decides qué incluir.')}</p>
+      <h2 id="confirmed-examples">{t('Your story so far', 'Tu historia hasta ahora')}</h2>
       <ol>{facts.map((fact, index) => <li key={fact.id}>
         {editing === fact.id ? <>
           <label className="resume-field" htmlFor={`edit-fact-${fact.id}`}>
@@ -73,17 +70,17 @@ export function DiscoverSkills() {
           <div className="discovery-actions">
             <button type="button" onClick={() => {setEditing(fact.id); setEditText(fact.text); setNotice('');}}>{t('Edit', 'Editar')} {index + 1}</button>
             <button type="button" onClick={() => {
-              update(current => ({...current, sourceFacts: current.sourceFacts.filter(item => item.id !== fact.id)}));
-              setNotice(t('Example removed.', 'Se eliminó el ejemplo.'));
+              update(current => ({...removeBasedOnFact(current,fact.id),sourceFacts:current.sourceFacts.filter(item=>item.id!==fact.id)}));
+              setNotice(t('Example and wording based on it were removed.', 'Se eliminaron el ejemplo y las palabras basadas en él.'));
             }}>{t('Remove', 'Eliminar')} {index + 1}</button>
           </div>
         </>}
       </li>)}</ol>
     </section>}
 
+    <Suggestions/>
     <div className="start-actions">
       <Link className="button primary" href="/resume/edit">{t('Continue to my résumé', 'Continuar a mi currículum')}</Link>
-      <Link href="/resume/edit">{t('Skip for now', 'Omitir por ahora')}</Link>
     </div>
   </main>;
 }

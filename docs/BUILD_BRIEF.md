@@ -6,7 +6,7 @@ Pondroot is a trusted bridge between overlooked talent and real employment oppor
 
 ## Experience
 Guest preparation is available without an account or incarceration disclosure. Welcome offers Start with my strengths and Go straight to my résumé. Navigation includes My next steps, Build my résumé, Rooted Network, Check my documents, Transparent Hiring Information and Sign in. On mobile group secondary links in an accessible menu.
-Discovery accepts voice or typing, one question at a time. Review transcripts and confirm facts before AI use. Show exact selected outgoing facts before each Claude request. Suggestions cite current facts and require individual Use, Edit or Leave out. Changes invalidate dependent approvals. Never infer qualifications, employers, duties, dates, credentials or metrics. Manual completion survives service failure.
+Discovery begins with a plain conversation prompt; optional voice and transcript review remain RN3 work. Confirm facts before AI use and show the exact outgoing words before each Claude request. A short suggested draft cites current facts; each part starts unchecked, can be edited in place, and enters the résumé only after the user checks it and chooses Use checked parts. Changes to facts remove dependent old wording. Never infer qualifications, employers, duties, dates, credentials or metrics. Manual completion survives service failure.
 Provide editable contact, introduction, skills, experience, education and optional training/additional sections; sparse content is valid. Desktop has live preview, mobile Edit/Preview. One original single column text résumé template. See SCREEN_FLOW.md and DATA_CONTRACT.md.
 
 ## Files and email
