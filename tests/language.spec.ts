@@ -8,11 +8,15 @@ test('Spanish covers every current page and the complete résumé file journey',
  await expect(page.locator('html')).toHaveAttribute('lang','es');
  await expect(page.getByRole('heading',{level:1})).toHaveText('Tu experiencia cuenta.');
 
- await page.getByRole('navigation',{name:'Navegación principal'}).getByRole('link',{name:'Mi currículum'}).click();
+ await Promise.all([page.waitForURL(/\/resume\/start$/),page.getByRole('navigation',{name:'Navegación principal'}).getByRole('link',{name:'Mi currículum'}).click()]);
  await expect(page.getByRole('heading',{level:1})).toHaveText('Empieza con tus habilidades');
- await page.getByRole('link',{name:'Explorar mi experiencia'}).click();
- await expect(page.getByRole('heading',{level:1})).toHaveText('Tu experiencia, en tus palabras');
- await expect(page.getByRole('button',{name:'Agregar una nota de experiencia'})).toBeVisible();
+ await Promise.all([page.waitForURL(/\/resume\/experience$/),page.getByRole('link',{name:'Explorar mi experiencia'}).click()]);
+ await expect(page.getByRole('heading',{level:1})).toHaveText('Cuéntanos algo que hiciste');
+ await expect(page.getByRole('button',{name:'Confirmar este ejemplo'})).toBeDisabled();
+ await page.getByLabel('Algo que hice').fill('Organicé suministros de limpieza.');
+ await page.getByRole('button',{name:'Confirmar este ejemplo'}).click();
+ await expect(page.getByRole('heading',{name:'Mis ejemplos confirmados'})).toBeVisible();
+ await expect(page.getByRole('listitem')).toContainText('Organicé suministros de limpieza.');
 
  await page.getByRole('navigation',{name:'Navegación principal'}).getByRole('link',{name:'Documentos'}).click();
  await expect(page.getByRole('heading',{level:1})).toHaveText('Revisa tus documentos');

@@ -2,6 +2,8 @@
 
 Contract version 2 — Rooted Network. Local editable file format remains version 1. This contract defines guest preparation, optional authenticated saving and consented employer connections.
 
+November 26 direction: initial launch is partnership-ready and works with zero employers. Employer and opportunity records, verification evidence and protected administration are built before public activation. Candidate profiles, matching consent and introduction records below are future architecture, not launch-time sharing. No profile or résumé is automatically published or sent. Publication requires a real verified current opportunity; introductions require a later activation review and separate candidate approval.
+
 RN2 implementation: optional impact consent uses isolated Neon table `pondroot_impact.contacts` with `id`, `email`, `consent_version`, `consented_at` and `delete_after`. No résumé/profile/document content is included. Expiry is at 89 days, allowing hourly cleanup and the configured six-hour recovery window within the 90-day maximum. Duplicate submissions do not extend the deadline. Only the owner can retrieve a contact once or delete it early; the web role may only submit consent. See `db/impact.sql` and `IMPACT_OPERATIONS.md` for development evidence and production activation requirements.
 
 ## Ownership and storage boundaries
