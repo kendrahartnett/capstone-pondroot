@@ -32,7 +32,7 @@ Pondroot is being delivered in bounded, reviewable checkpoints. RN1 and RN2 are 
 | --- | --- | --- |
 | RN1 — Design alignment | Complete | Rooted Network home, responsive navigation, Stillwater visual system, English/Spanish interface |
 | RN2 — Résumé files | Complete | Manual résumé journey, live preview, editable local drafts, browser PDF, print, download consent, and short-lived impact follow-up storage |
-| RN3 — DiscoverSkills | In review | Typed and optional browser voice input, confirmed examples, source-linked AI wording and individual acceptance; live evaluation and owner review |
+| RN3 — DiscoverSkills | Local review | Typed and optional Deepgram voice input, confirmed examples, source-linked professional AI wording and individual acceptance; public AI waits for the model-output release gate |
 | RN4 — Employment preparation | Planned | ATS, application, document and interview guidance with reviewed support links |
 | RN5 — Partnership foundation | Planned | Private verified employer/opportunity records, protected administration and secure partner inquiries |
 | RN6 — Opportunity discovery | Planned | Real verified opportunities when available, honest empty state otherwise |
@@ -59,7 +59,7 @@ See [docs/PHASES.md](docs/PHASES.md) for checkpoint scope and evidence requireme
 ## What is intentionally not implemented yet
 
 - Public AI activation. Live AI writing is available in the local review process; production activation requires the release review.
-- Conversational follow-up coaching. Optional browser voice transcription is implemented for review; availability depends on the browser and its speech service.
+- Conversational follow-up coaching. Deepgram voice transcription is available in the local review build; public activation awaits the RN3 release review.
 - User accounts, authentication, cloud résumé storage, or a persistent dashboard.
 - Candidate profiles, employer matching, or partner introductions.
 - Live employer inventory or automatic job applications.
