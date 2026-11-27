@@ -10,5 +10,22 @@ export function passesObviousClaimCheck(text:string,evidence:string){
   if(new RegExp('\\b'+term+'\\b','i').test(text)&&new RegExp('\\b(?:not|never) (?:\\w+ ){0,2}'+term+'\\b','i').test(evidence))return false;
  }
  if(/\b(?:setup|set up)\b/i.test(text)&&!/\b(?:setup|set up)\b/i.test(evidence))return false;
+ // These are concrete extensions observed in live outputs, not professional tone.
+ const extensions:[RegExp,RegExp][]=[
+  [/\binventory|tracking\b/i,/\binventory|track(?:ed|ing)?\b/i],
+  [/\bdistribution\b/i,/\bdistribut(?:e|ed|ion|ing)\b/i],
+  [/\bdaily\b/i,/\bdaily|every day\b/i],
+  [/\bregular(?:ly)?\b/i,/\bregular(?:ly)?\b/i],
+  [/\btend(?:ed|ing)?\b/i,/\btend(?:ed|ing)?\b/i],
+  [/\bother supplies\b/i,/\bother supplies\b/i],
+  [/\bsafety basics\b/i,/\bsafety\b/i],
+  [/\bongoing (?:learning|education)\b/i,/\bongoing\b/i],
+  [/\bconversational\b/i,/\bconversational\b/i],
+ ];
+ if(extensions.some(([claim,sourceTerm])=>claim.test(text)&&!sourceTerm.test(evidence)))return false;
+ // A suggestion in the other language is confusing in a one-language draft.
+ const spanishWords=/\b(?:experiencia|trabajador(?:a)?|persona|hablo|bilingüe|conocimientos|limpié|cuidado|recibiendo|atención|confiable|jardinería|diarias|básicos)\b/i;
+ const englishSource=/\b(?:i|my|helped|worked|cleaned|speak|organized|attended|packed|cared|washed|folded|greeted)\b/i;
+ if(englishSource.test(evidence)&&!spanishWords.test(evidence)&&spanishWords.test(text))return false;
  return (text.match(/\d+(?:[.,]\d+)?%?/g)??[]).every(number=>source.includes(number));
 }

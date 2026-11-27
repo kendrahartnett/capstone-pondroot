@@ -6,9 +6,11 @@ The consent screen starts with no examples checked. The user chooses each exampl
 
 ## Current activation state
 
-The owner approved professional reframing with individual confirmation and a separate development evaluation allowance of at most 120 total calls/$6 reserved on November 27. Normal application limits remain 20 calls/$1 reserved per UTC day. This does not authorize automatic production activation. The preliminary response containing “reliable” and “orderly spaces” is acceptable under the revised rubric; retain its original assessment as historical evidence.
+The owner approved professional reframing with individual confirmation and a separate development evaluation ceiling of 340 total calls/$17 reserved on November 27. Normal application limits remain 20 calls/$1 reserved per UTC day. This does not authorize automatic production activation. The preliminary response containing “reliable” and “orderly spaces” is acceptable under the revised rubric; retain its original assessment as historical evidence.
 
 AI is **off by default**. Live synthetic evaluations and a local browser-to-Neon-to-Anthropic round trip have now run; see RN3_REVIEW.md for evidence and unresolved release requirements. Mocked browser responses separately test consent, source links, user selection and stale fact handling. The route reports unavailable until all server variables are present and `PONDROOT_AI_ENABLED=true`. The local review process may enable this flag without changing production or the saved environment file.
+
+The owner stopped further paid testing after the latest 90-output run. The final server filter contains its observed concrete overstatements, but the raw model-output gate did not pass. Do not enable public AI or claim release readiness based on containment alone. Other RN4 work can proceed while this gate remains open.
 
 ## Development setup
 
@@ -22,7 +24,7 @@ The Anthropic key by itself does not make the route available. If Neon setup or 
 
 The database reservation is atomic and table-blind to the app role: at most **3 reservations per minute**, **20 per UTC day**, **$0.05 reserved per call**, and **$1.00 reserved per UTC day**. Failed or uncertain calls keep their reservation. The route allows up to 20 selected facts and 12,000 characters, then rejects requests above **4,000 counted input tokens**. It caps the model at **800 output tokens**. The daily reservation is a local safety ceiling, not a provider billing limit or a promise that API prices cannot change. Recheck pricing before activation; disable the route if model price or billing behavior changes.
 
-The prompt forbids invented employers, titles, dates, credentials, metrics, duties, and achievements. Response schema and source IDs are validated before display. These mechanical checks cannot prove that every phrase is factually supported. Individual human confirmation and the live model evaluation in [ACCEPTANCE.md](ACCEPTANCE.md) remain mandatory. A serious fabricated claim blocks activation.
+The prompt encourages useful professional language and modest positive qualities while forbidding invented concrete employers, titles, dates, credentials, metrics, duties, and achievements. Response schema and source IDs are validated before display. These mechanical checks cannot prove that every phrase is factually supported. Individual human confirmation and the live model evaluation in [ACCEPTANCE.md](ACCEPTANCE.md) remain mandatory. A serious fabricated claim blocks activation.
 
 The budget tables store opaque reservation IDs, dates, counts, and reserved microdollars only. They store no résumé text, contact data, IP address, or provider response. Establish a 90-day operational metadata cleanup and verify it before production use. Review abuse controls for shared networks and the exact provider retention policy before release.
 

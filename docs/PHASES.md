@@ -3,6 +3,8 @@ November 23, 2026 — Network-first implementation sequence
 
 The product releases are MVP, Phase 2 improvement and Phase 3 network growth. The implementation checkpoints below divide MVP into reviewable work. They do not claim implementation or authorize starting a phase.
 
+November 27 RN3 completion checkpoint: The owner confirmed Deepgram voice works and requested more helpful professional AI wording. A fresh 90-output synthetic evaluation finished under the approved cap; the server display filter contained unsupported concrete additions, but raw model output did not pass the release rule. The owner stopped further paid testing and approved this reviewed checkpoint for commit and push. Public AI stays off; the model-output gate and production operations/access checks remain open. See RN3_REVIEW.md.
+
 | Checkpoint | Outcome | Required evidence |
 | --- | --- | --- |
 | RN1 Design alignment | Mural inspired welcome, simple navigation and calm responsive workspace | Desktop/mobile walkthrough, keyboard/focus/reflow and copy review |

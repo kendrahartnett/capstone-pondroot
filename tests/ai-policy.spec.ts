@@ -9,4 +9,15 @@ test('professional qualities are allowed while concrete unsupported claims are w
  expect(passesObviousClaimCheck('Certified forklift operator','I am not certified.')).toBe(false);
  expect(passesObviousClaimCheck('Improved productivity by 50%','I cleaned rooms.')).toBe(false);
  expect(passesObviousClaimCheck('Event setup and cleanup','I helped stack chairs after a school event.')).toBe(false);
+ expect(passesObviousClaimCheck('Reliable worker who kept rooms clean','I cleaned rooms.')).toBe(true);
+ expect(passesObviousClaimCheck('Assisted with inventory tracking','I helped count boxes.')).toBe(false);
+ expect(passesObviousClaimCheck('Sorted donated shoes for distribution','I organized donated shoes.')).toBe(false);
+ expect(passesObviousClaimCheck('Provided daily care','I cared for my child.')).toBe(false);
+ expect(passesObviousClaimCheck('Regular floor sweeping','I swept floors.')).toBe(false);
+ expect(passesObviousClaimCheck('Tended vegetables','I planted vegetables.')).toBe(false);
+ expect(passesObviousClaimCheck('Organized pencils and other supplies','I organized pencils.')).toBe(false);
+ expect(passesObviousClaimCheck('Learned safety basics','I attended a forklift class.')).toBe(false);
+ expect(passesObviousClaimCheck('Conversational Portuguese','I speak a little Portuguese.')).toBe(false);
+ expect(passesObviousClaimCheck('Hablo inglés y español','I speak English and Spanish.')).toBe(false);
+ expect(passesObviousClaimCheck('Limpieza de habitaciones','Limpié habitaciones.')).toBe(true);
 });
