@@ -1,5 +1,5 @@
 'use client';
-import {useRef,useState} from 'react';
+import {useEffect,useRef,useState} from 'react';
 import {useLanguage} from '../language';
 import {useResume} from './provider';
 import type {ReviewedText} from './model';
@@ -9,6 +9,8 @@ export function Suggestions(){
  const {draft,generation,isCurrent,update}=useResume();const {es}=useLanguage();const t=(en:string,sp:string)=>es?sp:en;
  const [selected,setSelected]=useState<string[]>([]),[open,setOpen]=useState(false),[available,setAvailable]=useState(false),[busy,setBusy]=useState(false);
  const [error,setError]=useState(''),[items,setItems]=useState<Candidate[]>([]),[chosen,setChosen]=useState<string[]>([]),[edits,setEdits]=useState<Record<string,string>>({}),[notice,setNotice]=useState('');const pending=useRef(0);
+ const draftHeading=useRef<HTMLHeadingElement>(null);
+ useEffect(()=>{if(items.length){draftHeading.current?.focus();draftHeading.current?.scrollIntoView({block:'start'});}},[items]);
  const facts=draft.sourceFacts.filter(f=>selected.includes(f.id));const total=facts.reduce((n,f)=>n+f.text.length,0);
  const hasContact=facts.some(f=>/[^\s@]+@[^\s@]+\.[^\s@]+|\+?\d[\d\s().-]{7,}\d/.test(f.text));
  const selectedItems=items.filter(item=>chosen.includes(item.id));
@@ -16,7 +18,7 @@ export function Suggestions(){
  const overLimit=selectedItems.filter(item=>item.destination==='skill').length>30-draft.skills.length||selectedItems.filter(item=>item.destination==='introduction').length>1||itemCount+selectedItems.length>200;
  const current=(item:Candidate)=>item.sourceRefs.length>0&&item.sourceRefs.every(ref=>draft.sourceFacts.some(f=>f.id===ref.factId&&f.revision===ref.factRevision));
  const room=(item:Candidate)=>item.destination==='introduction'?!draft.introduction:item.destination==='skill'?draft.skills.length<30:draft.experiences.length<20;
- async function prepare(){setOpen(true);setSelected(draft.sourceFacts.slice(0,20).map(f=>f.id));setItems([]);setError('');setNotice('');try{const response=await fetch('/api/discover-skills',{cache:'no-store'});setAvailable((await response.json()).available===true);}catch{setAvailable(false);}}
+ async function prepare(){setOpen(true);setSelected([]);setItems([]);setError('');setNotice('');try{const response=await fetch('/api/discover-skills',{cache:'no-store'});setAvailable((await response.json()).available===true);}catch{setAvailable(false);}}
  async function send(){
   if(!available||!facts.length||facts.length>20||total>12000||hasContact)return;
   const serial=++pending.current,source=draft,sourceGeneration=generation;setBusy(true);setError('');
@@ -40,14 +42,14 @@ export function Suggestions(){
  return <section className="discovery-examples" aria-labelledby="writing-help-title"><h2 id="writing-help-title">{t('Ready for a draft?','¿Listo para un borrador?')}</h2>
   <p>{t('AI can help write it. You choose what to use.','La IA puede ayudarte a escribirlo. Tú eliges qué usar.')}</p>
   <button type="button" disabled={!draft.sourceFacts.length} onClick={prepare}>{t('Build my résumé with AI','Crear mi currículum con IA')}</button>
-  {open&&<div className="tool-panel"><h3>{t('Check your words','Revisa tus palabras')}</h3><p>{t('Only checked words go to AI. Your contact details stay here.','Solo las palabras marcadas se envían a la IA. Tus datos de contacto se quedan aquí.')}</p>
+  {open&&<div className="tool-panel"><h3>{t('Check your words','Revisa tus palabras')}</h3><p>{t('Checked words go to Claude (Anthropic). Leave out private details.','Las palabras marcadas van a Claude (Anthropic). Omite los datos privados.')}</p><details><summary>{t('About your data','Sobre tus datos')}</summary><p>{t('Your résumé contact fields are not sent. Anything you include in these examples will be sent.','Los campos de contacto del currículum no se envían. Todo lo que incluyas en estos ejemplos se enviará.')}</p><a href="https://platform.claude.com/docs/en/manage-claude/api-and-data-retention">{t('Read Anthropic’s data policy','Lee la política de datos de Anthropic')}</a></details>
    {draft.sourceFacts.map((fact,index)=><label key={fact.id} className="discovery-select"><input type="checkbox" checked={selected.includes(fact.id)} onChange={e=>setSelected(ids=>e.target.checked?[...ids,fact.id]:ids.filter(id=>id!==fact.id))}/> {t('Example','Ejemplo')} {index+1}: {fact.text}</label>)}
    {(facts.length>20||total>12000)&&<p role="alert">{t('Choose fewer examples.','Elige menos ejemplos.')}</p>}
    {hasContact&&<p role="alert">{t('Remove email addresses and phone numbers from your story before sending it to AI.','Quita los correos y números de teléfono de tu historia antes de enviarla a la IA.')}</p>}
    {!available&&<p role="status">{t('AI writing is not available yet. You can still write your résumé yourself.','La ayuda de IA aún no está disponible. Puedes escribir tu currículum por tu cuenta.')}</p>}
    <div className="discovery-actions"><button type="button" disabled={!available||!facts.length||facts.length>20||total>12000||hasContact||busy} onClick={send}>{busy?t('Writing…','Escribiendo…'):t('Continue with these words','Continuar con estas palabras')}</button><button type="button" onClick={()=>{pending.current++;setOpen(false);setBusy(false);}}>{t('Cancel','Cancelar')}</button></div></div>}
   {error&&<p role="alert">{error}</p>}{notice&&<p role="status">{notice}</p>}
-  {!!items.length&&<div className="draft-suggestions"><h3>{t('Here is a draft','Aquí tienes un borrador')}</h3><p>{t('Check each part that matches what you really did. You can change the words. Leave anything uncertain unchecked.','Marca cada parte que refleje lo que hiciste. Puedes cambiar las palabras. Deja sin marcar lo que no sepas.')}</p>
+  {!!items.length&&<div className="draft-suggestions"><h3 ref={draftHeading} tabIndex={-1}>{t('Here is a draft','Aquí tienes un borrador')}</h3><p>{t('Check each part that describes you. Change any words you need.','Marca cada parte que te describa. Cambia las palabras que necesites.')}</p>
    {items.map(item=><article className="tool-panel" key={item.id}><h4>{label(item.destination)}</h4><label className="discovery-select"><input type="checkbox" checked={chosen.includes(item.id)} disabled={!current(item)||!room(item)} onChange={e=>setChosen(ids=>e.target.checked?[...ids,item.id]:ids.filter(id=>id!==item.id))}/> {t('Use this in my résumé','Usar esto en mi currículum')}</label><p>{t('From your words:','De tus palabras:')} {item.sourceRefs.map(ref=>draft.sourceFacts.find(f=>f.id===ref.factId)?.text).filter(Boolean).join(' · ')}</p><label className="resume-field"><span>{t('Draft wording','Palabras del borrador')}</span><textarea rows={3} maxLength={2000} value={edits[item.id]??item.text} onChange={e=>setEdits(all=>({...all,[item.id]:e.target.value}))}/></label>{!current(item)&&<p role="alert">{t('Your example changed. This part cannot be used.','Cambió tu ejemplo. Esta parte no se puede usar.')}</p>}{!room(item)&&<p>{t('This section is already full. Edit your résumé to make room.','Esta sección ya está llena. Edita tu currículum para hacer espacio.')}</p>}</article>)}
    {overLimit&&<p role="alert">{t('Choose fewer parts for this section.','Elige menos partes para esta sección.')}</p>}
    <div className="discovery-actions"><button type="button" disabled={overLimit||!items.some(item=>chosen.includes(item.id)&&current(item)&&room(item)&&(edits[item.id]??item.text).trim())} onClick={useChosen}>{t('Use checked parts','Usar partes marcadas')}</button><button type="button" onClick={()=>{setItems([]);setChosen([]);}}>{t('Leave all out','No incluir ninguna')}</button></div></div>}

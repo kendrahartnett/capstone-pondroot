@@ -2,15 +2,21 @@
 
 The conversation-first résumé draft uses Claude Sonnet through `app/api/discover-skills/route.ts`. The browser sends only the exact confirmed examples shown on the consent screen. Contact fields, the full résumé, and local draft files are not sent. The client and server block obvious email addresses and phone numbers within selected story text; other sensitive text still requires the user's review. A returned suggestion is not résumé content until the user checks that specific part and chooses **Use checked parts**. Imported AI wording needs renewed review. Manual editing, printing, and files remain usable when AI is unavailable.
 
+The consent screen starts with no examples checked. The user chooses each example before **Continue with these words** becomes available. The same client request ID is passed to the budget reservation, so a repeated request ID cannot reserve a second call. The server-side limit still applies to distinct IDs.
+
 ## Current activation state
 
-AI is **off by default**. No model call was made during implementation. Synthetic mocked responses test consent, source links, user selection, and stale fact handling. The route reports unavailable until all server variables are present and `PONDROOT_AI_ENABLED=true`. Do not enable it merely because an API key has credit.
+The owner approved professional reframing with individual confirmation and a separate development evaluation allowance of at most 120 total calls/$6 reserved on November 27. Normal application limits remain 20 calls/$1 reserved per UTC day. This does not authorize automatic production activation. The preliminary response containing “reliable” and “orderly spaces” is acceptable under the revised rubric; retain its original assessment as historical evidence.
+
+AI is **off by default**. Live synthetic evaluations and a local browser-to-Neon-to-Anthropic round trip have now run; see RN3_REVIEW.md for evidence and unresolved release requirements. Mocked browser responses separately test consent, source links, user selection and stale fact handling. The route reports unavailable until all server variables are present and `PONDROOT_AI_ENABLED=true`. The local review process may enable this flag without changing production or the saved environment file.
 
 ## Development setup
 
 1. Create a dedicated restricted `pondroot_ai_app` role on the intended Neon development branch. It must have no direct table privileges. As owner, apply [db/ai-budget.sql](../db/ai-budget.sql) to that development branch only. Verify the role can execute `pondroot_ai.reserve(uuid)` and cannot select budget tables or any impact/resume data. Do not reuse the impact role or its URL.
 2. In ignored `.env.local`, set `ANTHROPIC_API_KEY`, `AI_DATABASE_URL`, and `PONDROOT_AI_APP_ORIGIN` for the local server. Do not paste the key into chat, put it in a `NEXT_PUBLIC_` variable, or commit the file. Keep `PONDROOT_AI_ENABLED=false` until the database and model checks pass.
 3. Review provider terms, data handling, model version, current price, and exact prompt/schema. Run a bounded synthetic smoke set with a separate written spend limit. Turn the switch on only for that reviewed development run. Production remains off until release gates are met.
+
+The Anthropic key by itself does not make the route available. If Neon setup or automatic approval review is unavailable, keep `PONDROOT_AI_ENABLED` unset or false and continue with local mocked checks. Do not route around a denied Neon operation through another connection.
 
 ## Hard limits in this build
 
