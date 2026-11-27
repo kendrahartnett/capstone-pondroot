@@ -5,6 +5,8 @@ The product releases are MVP, Phase 2 improvement and Phase 3 network growth. Th
 
 November 27 RN3 completion checkpoint: The owner confirmed Deepgram voice works and requested more helpful professional AI wording. A fresh 90-output synthetic evaluation finished under the approved cap; the server display filter contained unsupported concrete additions, but raw model output did not pass the release rule. The owner stopped further paid testing and approved this reviewed checkpoint for commit and push. Public AI stays off; the model-output gate and production operations/access checks remain open. See RN3_REVIEW.md.
 
+November 27 release-gate follow-up: Exact source quotes were added to AI suggestions and verified before display. A ten-case live smoke completed; a new frozen run stopped at 34/90 after a raw unsupported current-study claim. The owner requested completion as it stands, commit and push. Public AI is still off and the model-output gate is not passed; see RN3_REVIEW.md for costs, checks and remaining operational/access evidence.
+
 | Checkpoint | Outcome | Required evidence |
 | --- | --- | --- |
 | RN1 Design alignment | Mural inspired welcome, simple navigation and calm responsive workspace | Desktop/mobile walkthrough, keyboard/focus/reflow and copy review |

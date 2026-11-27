@@ -21,6 +21,7 @@ export function passesObviousClaimCheck(text:string,evidence:string){
   [/\bsafety basics\b/i,/\bsafety\b/i],
   [/\bongoing (?:learning|education)\b/i,/\bongoing\b/i],
   [/\bconversational\b/i,/\bconversational\b/i],
+  [/\borganizing\b/i,/\borganiz(?:e|ed|ing|ation)\b/i],
  ];
  if(extensions.some(([claim,sourceTerm])=>claim.test(text)&&!sourceTerm.test(evidence)))return false;
  // A suggestion in the other language is confusing in a one-language draft.
@@ -28,4 +29,8 @@ export function passesObviousClaimCheck(text:string,evidence:string){
  const englishSource=/\b(?:i|my|helped|worked|cleaned|speak|organized|attended|packed|cared|washed|folded|greeted)\b/i;
  if(englishSource.test(evidence)&&!spanishWords.test(evidence)&&spanishWords.test(text))return false;
  return (text.match(/\d+(?:[.,]\d+)?%?/g)??[]).every(number=>source.includes(number));
+}
+
+export function isAnchoredSuggestion(text:string,quote:string,source:string){
+ return source.includes(quote)&&passesObviousClaimCheck(text,quote);
 }
