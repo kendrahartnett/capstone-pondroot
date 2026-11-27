@@ -32,7 +32,7 @@ Pondroot is being delivered in bounded, reviewable checkpoints. RN1 and RN2 are 
 | --- | --- | --- |
 | RN1 — Design alignment | Complete | Rooted Network home, responsive navigation, Stillwater visual system, English/Spanish interface |
 | RN2 — Résumé files | Complete | Manual résumé journey, live preview, editable local drafts, browser PDF, print, download consent, and short-lived impact follow-up storage |
-| RN3 — DiscoverSkills | In progress | Typed fact confirmation first; evidence-linked AI and optional voice in later reviewed increments |
+| RN3 — DiscoverSkills | In review | Typed and optional browser voice input, confirmed examples, source-linked AI wording and individual acceptance; live evaluation and owner review |
 | RN4 — Employment preparation | Planned | ATS, application, document and interview guidance with reviewed support links |
 | RN5 — Partnership foundation | Planned | Private verified employer/opportunity records, protected administration and secure partner inquiries |
 | RN6 — Opportunity discovery | Planned | Real verified opportunities when available, honest empty state otherwise |
@@ -58,8 +58,8 @@ See [docs/PHASES.md](docs/PHASES.md) for checkpoint scope and evidence requireme
 
 ## What is intentionally not implemented yet
 
-- Live AI-assisted résumé writing. The conversation, exact consent, and draft review interface is implemented, but model calls remain disabled until provider and budget setup and live evaluation.
-- Voice transcription or conversational coaching.
+- Public AI activation. Live AI writing is available in the local review process; production activation requires the release review.
+- Conversational follow-up coaching. Optional browser voice transcription is implemented for review; availability depends on the browser and its speech service.
 - User accounts, authentication, cloud résumé storage, or a persistent dashboard.
 - Candidate profiles, employer matching, or partner introductions.
 - Live employer inventory or automatic job applications.
@@ -73,7 +73,7 @@ These capabilities remain in the approved direction, but they must pass their as
 Pondroot treats user control as a product requirement:
 
 - **Truth before polish:** AI must never invent or inflate a claim.
-- **Evidence-linked suggestions:** future AI suggestions must point back to user-confirmed facts.
+- **Evidence-linked suggestions:** AI suggestions point back to confirmed examples. Professional reframing and suggested qualities require individual confirmation; concrete work history and qualifications cannot be invented.
 - **Individual control:** users accept, edit, or reject suggestions one at a time; nothing is silently approved.
 - **Manual completion:** résumé creation must remain usable when AI, speech, storage, or network services fail.
 - **No required incarceration disclosure:** justice history is not needed to build a résumé or determine eligibility.
@@ -122,7 +122,7 @@ Current technology:
 - Neon serverless storage only for separately consented impact follow-up records.
 - Playwright and axe-core for journey, responsive, keyboard, accessibility, file, PDF, and consent checks.
 
-The server-only Claude Sonnet route is disabled by default. It validates exact selected-data consent, reserves an atomic daily budget in separate Neon operations storage, checks input tokens, caps output tokens, and returns source-linked draft parts for explicit user confirmation. No live model call was made for this implementation. See [AI operations](docs/AI_OPERATIONS.md) for setup, numeric limits, and activation checks. Future account and Rooted Network data will use separate authorization and consent domains; guest work must never be uploaded automatically.
+The server-only Claude Sonnet route is disabled by default. It validates exact selected-data consent, reserves an atomic daily budget in separate Neon operations storage, checks input tokens, caps output tokens, and returns source-linked draft parts for explicit user confirmation. Live synthetic evaluation and local app checks are recorded in [RN3 review](docs/RN3_REVIEW.md). See [AI operations](docs/AI_OPERATIONS.md) for setup, numeric limits, and activation checks. Future account and Rooted Network data will use separate authorization and consent domains; guest work must never be uploaded automatically.
 
 ## Local development
 

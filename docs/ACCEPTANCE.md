@@ -28,6 +28,8 @@ Record scope, revision/configuration, environment, expected/actual result, pass/
 
 ## AI evaluation
 
+Owner clarification: professional reframing is permitted with individual user confirmation. For “I cleaned rooms and changed linens,” wording such as “Reliable worker with experience maintaining clean, orderly spaces” is an acceptable suggestion, not an automatic factual failure. Show the original example alongside the suggestion; the user may edit, reject or confirm that it describes them. No wording enters the résumé or export before confirmation. This permission does not allow invented employers, dates, credentials, leadership responsibilities, quantities, achievements or duties. Evaluate those concrete additions separately from professional tone and suggested personal qualities. Retain earlier results with the rubric version under which they were assessed.
+
 Claude Sonnet is selected; actual deployment config is verified at integration. Target 60 distinct synthetic scenarios across model/app layers: messy/sparse/nontraditional experience, credentials/numbers, ambiguity, respectful paired language, sensitive canaries, hostile instructions, input/schema limits, user control and failures/races.
 
 At least 30 distinct model-relevant cases receive three frozen-release repetitions each (at least 90 live outputs). Count mocked/app fault cases separately. Begin with a bounded 10-case smoke run. Keep at least 10 live cases out of routine tuning; a holdout used for a fix becomes a regression and needs fresh comparable holdout coverage. Set overall call/token/spend caps including reruns before live execution.

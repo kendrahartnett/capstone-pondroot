@@ -6,10 +6,11 @@ import {useLanguage} from '../language';
 import {useResume} from './provider';
 import {removeBasedOnFact} from './model';
 import {Suggestions} from './suggestions';
+import {VoiceInput} from './voice-input';
 import './resume.css';
 
 export function DiscoverSkills() {
-  const {draft, update} = useResume();
+  const {draft, update, generation} = useResume();
   const {es} = useLanguage();
   const [answer, setAnswer] = useState('');
   const [editing, setEditing] = useState<string | null>(null);
@@ -48,6 +49,7 @@ export function DiscoverSkills() {
       <span>{t('Something I did', 'Algo que hice')}</span>
       <textarea id="discovery-answer" rows={5} maxLength={2000} value={answer} onChange={event => setAnswer(event.target.value)} />
     </label>
+    <VoiceInput key={`${es?'es':'en'}-${generation}`} es={es} onTranscript={text=>setAnswer(current=>((current?current+' ':'')+text).slice(0,2000))}/>
     <button type="button" disabled={!answer.trim() || facts.length >= 100} onClick={confirm}>
       {t('Add to my story', 'Agregar a mi historia')}
     </button>
