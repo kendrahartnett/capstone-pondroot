@@ -1,6 +1,20 @@
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
+test('discovery and AI consent remain keyboard accessible on a narrow screen',async({page})=>{
+ await page.route('**/api/discover-skills',route=>route.fulfill({json:{available:true}}));
+ await page.goto('/resume/experience');
+ await page.getByLabel('Something I did').fill('I cleaned rooms and changed linens.');
+ await page.getByRole('button',{name:'Add to my story'}).click();
+ await page.getByRole('button',{name:'Build my résumé with AI'}).click();
+ await expect(page.getByRole('button',{name:'Continue with these words'})).toBeDisabled();
+ expect((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze()).violations).toEqual([]);
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await page.getByRole('checkbox',{name:/Example 1/}).focus();
+ await page.keyboard.press('Space');
+ await expect(page.getByRole('button',{name:'Continue with these words'})).toBeEnabled();
+});
+
 test('professional reframing enters the résumé only after individual confirmation',async({page})=>{
  const wording='Reliable worker with experience maintaining clean, orderly spaces.';
  await page.route('**/api/discover-skills',route=>{

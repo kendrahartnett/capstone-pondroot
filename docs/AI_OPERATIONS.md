@@ -12,6 +12,16 @@ AI is **off by default**. Live synthetic evaluations and a local browser-to-Neon
 
 The owner stopped further paid testing after the latest 90-output run. The final server filter contains its observed concrete overstatements, but the raw model-output gate did not pass. Do not enable public AI or claim release readiness based on containment alone. Other RN4 work can proceed while this gate remains open.
 
+A subsequent owner-approved release-gate attempt added an exact source quote to each suggestion. The server verifies the quote belongs to a cited fact before display. The ten-case smoke succeeded, but a later run was stopped at 34/90 after an unsupported current-study claim. The development ceiling is now 450 calls/$22.50 reserved; the local ledger records 352 calls/$17.60 reserved. Public AI remains disabled. See RN3_REVIEW.md for the disposition.
+
+## Public activation handoff
+
+The owner wants AI available publicly. This is an activation checklist, not a statement that production is active. Confirm the exact public HTTPS origin and production deployment project first. Provision a production restricted AI database role and apply the reviewed budget schema to that database; verify `reserve(uuid)` works, the app role cannot read reservation rows, the 20-per-UTC-day/$1 cap is enforced, and cleanup runs within 90 days. Keep this separate from the impact database and résumé data.
+
+Configure server-only production variables in the deployment service: `ANTHROPIC_API_KEY`, `AI_DATABASE_URL`, and `PONDROOT_AI_APP_ORIGIN` set to the exact public origin. Set `PONDROOT_AI_ENABLED=true` only after the release decision and production checks. For public voice also configure `DEEPGRAM_API_KEY`, `PONDROOT_VOICE_APP_ORIGIN`, and `PONDROOT_VOICE_ENABLED=true`; voice and AI share the operational reservation cap. Never copy local `.env.local` or an owner database URL into source control. Use a synthetic production request and inspect returned source links, cost counters, privacy, errors and rollback. Turning either enabled flag off is the immediate rollback.
+
+The current raw-output evaluation failed and independent screen-reader/participant evidence is incomplete. Treat public activation as a separate explicit risk decision with those facts visible; do not describe this checkpoint as a passing release gate.
+
 ## Development setup
 
 1. Create a dedicated restricted `pondroot_ai_app` role on the intended Neon development branch. It must have no direct table privileges. As owner, apply [db/ai-budget.sql](../db/ai-budget.sql) to that development branch only. Verify the role can execute `pondroot_ai.reserve(uuid)` and cannot select budget tables or any impact/resume data. Do not reuse the impact role or its URL.

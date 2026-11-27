@@ -1,5 +1,5 @@
 import {test,expect} from '@playwright/test';
-import {passesObviousClaimCheck} from '../app/api/discover-skills/policy';
+import {isAnchoredSuggestion,passesObviousClaimCheck} from '../app/api/discover-skills/policy';
 test('professional qualities are allowed while concrete unsupported claims are withheld',()=>{
  expect(passesObviousClaimCheck('Reliable worker maintaining clean, orderly spaces','I cleaned rooms and changed linens.')).toBe(true);
  expect(passesObviousClaimCheck('Full-time childcare','I cared for my child at home.')).toBe(false);
@@ -20,4 +20,7 @@ test('professional qualities are allowed while concrete unsupported claims are w
  expect(passesObviousClaimCheck('Conversational Portuguese','I speak a little Portuguese.')).toBe(false);
  expect(passesObviousClaimCheck('Hablo inglés y español','I speak English and Spanish.')).toBe(false);
  expect(passesObviousClaimCheck('Limpieza de habitaciones','Limpié habitaciones.')).toBe(true);
+ expect(passesObviousClaimCheck('Cleaning and organizing storage areas','I wiped shelves and swept a storage room.')).toBe(false);
+ expect(isAnchoredSuggestion('Reliable worker with experience cleaning rooms','I cleaned rooms.','I cleaned rooms.')).toBe(true);
+ expect(isAnchoredSuggestion('Reliable worker with experience cleaning rooms','I cleaned rooms.','I swept floors.')).toBe(false);
 });
