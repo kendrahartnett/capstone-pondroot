@@ -122,7 +122,7 @@ The current implementation sequence is RN1–RN6 in PHASES.md. These criteria re
 | RN-A10 | Matching defaults No; exact profile preview and separate consent required; only confirmed fields shared; changed scope requires renewed review | RN5 |
 | RN-A11 | Each introduction requires approval; at dispatch recheck consent/profile/partner/job; revoke or suspension blocks pending/new access; partner cannot read private draft | RN5 |
 | RN-A12 | Verified current inventory only; show source/review/expiry and relevant reasons; unavailable jobs/partners removed; empty state promises no fictitious opportunity | RN5 |
-| RN-A13 | ATS lesson explains employer variation and truthful preparation with no score/pass guarantee; written lesson survives video failure; no mandatory course | RN6 |
+| RN-A13 | ATS lesson defines Applicant Tracking System, explains employer variation and truthful preparation with no score/pass guarantee; written lesson survives video failure; no mandatory course | RN4 |
 | RN-A14 | Intended users can prepare, identify an opportunity, understand sharing and approve/decline introduction; record actual failures and fixes | RN6 |
 
 Use synthetic data in automated/device checks. Report mocked and live model evaluation separately. No test is passed merely by writing its criterion. Severe fabricated claims, unauthorized disclosure, consent bypass or inaccessible core task blocks release.
