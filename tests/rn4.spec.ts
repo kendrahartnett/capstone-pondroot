@@ -3,7 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 
 test('hiring guide offers independent written actions without a résumé gate',async({page})=>{
  await page.goto('/learn');
- await expect(page.getByRole('heading',{name:'Get ready to apply'})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Get ready for your next job'})).toBeVisible();
  await expect(page.getByRole('link',{name:'Return to my résumé'})).toHaveCount(0);
  await expect(page.getByRole('heading',{name:'See how it works'})).toBeVisible();
  await expect(page.getByRole('button',{name:'Watch video'})).toHaveCount(3);
@@ -14,18 +14,18 @@ test('hiring guide offers independent written actions without a résumé gate',a
  await page.getByRole('button',{name:'Close video'}).click();
  await expect(page.locator('iframe')).toHaveCount(0);
  await expect(page.getByText('Attaching a file does not submit the application.')).toBeVisible();
- await expect(page.getByText('ATS means Applicant Tracking System.',{exact:false})).toBeVisible();
- await expect(page.getByText('There is no single ATS score or trick', {exact:false})).toBeVisible();
+ await expect(page.getByText('An ATS is a computer system some employers use to collect and organize job applications.')).toBeVisible();
+ await expect(page.getByText('There is no magic résumé score or trick that guarantees an interview.')).toBeVisible();
  await expect(page.locator('.rn4-practice-grid details')).toHaveCount(4);
  await page.locator('.rn4-practice-grid summary').first().click();
  await expect(page.getByText('Start with work you have done', {exact:false})).toBeVisible();
  await page.locator('.rn4-practice-grid summary').last().click();
  await expect(page.getByText('What does a typical day look like?', {exact:false})).toBeVisible();
- await page.getByText('What if I have a gap in my work history?').click();
- await expect(page.getByText('Pondroot does not require a gap explanation', {exact:false})).toBeVisible();
+ await page.getByText('What if there is a gap in my work history?').click();
+ await expect(page.getByText("A gap doesn't mean you aren't ready to work.")).toBeVisible();
  await expect(page.getByRole('link',{name:'Edit my résumé'})).toHaveAttribute('href','/resume/edit');
- await page.getByText('Could this job offer be a scam?').click();
- await expect(page.getByRole('link',{name:/FTC job scam guide/})).toHaveAttribute('rel','noopener noreferrer');
+ await page.getByText('How can I spot a job scam?').click();
+ await expect(page.getByRole('link',{name:'Learn how to spot job scams (FTC)'})).toHaveAttribute('rel','noopener noreferrer');
  expect((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze()).violations).toEqual([]);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
@@ -55,8 +55,8 @@ test('Spanish guide and document options remain usable',async({page})=>{
  await page.getByLabel('Tal vez tenga una opción de la Lista B').check();
  await expect(page.getByRole('status')).toContainText('Lista C');
  await page.getByRole('navigation',{name:'Navegación principal'}).getByRole('link',{name:'Contratación'}).click();
- await expect(page.getByRole('heading',{name:'Prepárate para solicitar empleo'})).toBeVisible();
- await expect(page.getByText('ATS significa Sistema de Seguimiento de Candidatos.',{exact:false})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Prepárate para tu próximo empleo'})).toBeVisible();
+ await expect(page.getByText('Un ATS es un sistema que algunos empleadores usan para reunir y organizar solicitudes de empleo.')).toBeVisible();
  await page.locator('.rn4-practice-grid summary').first().click();
  await expect(page.getByText('Empieza con el trabajo que has hecho',{exact:false})).toBeVisible();
  await expect(page.getByRole('link',{name:'Editar mi currículum'})).toBeVisible();
