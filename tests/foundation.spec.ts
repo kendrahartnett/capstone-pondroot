@@ -6,7 +6,7 @@ test('independent destinations and direct writing route return home',async({page
   await page.locator(`main a[href="${path}"]`).first().click();
   await expect(page).toHaveURL(new RegExp(path+'$'));
   if(path==='/documents') await expect(page.getByRole('heading',{name:'Check your document options'})).toBeVisible();
-  if(path==='/learn') await expect(page.getByRole('heading',{name:'Get ready to apply'})).toBeVisible();
+  if(path==='/learn') await expect(page.getByRole('heading',{name:'Get ready for your next job'})).toBeVisible();
   await Promise.all([page.waitForURL(/\/$/),page.getByRole('navigation',{name:'Main navigation'}).getByRole('link',{name:'Home'}).click()]);
   await expect(page.getByRole('heading',{level:1})).toHaveText('Your experience matters.');
  }
