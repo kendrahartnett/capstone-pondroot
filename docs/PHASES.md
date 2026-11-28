@@ -1,6 +1,8 @@
 # Pondroot phases and checkpoints
 November 23, 2026 — Network-first implementation sequence
 
+November 28 RN4 working branch: `codex/rn4-employment-preparation` starts from merged `origin/main`. The owner formally paused RN3; public AI remains disabled and its release gates remain open. RN4 replaces the document and hiring previews with bilingual written guidance, a memory-only deterministic A or B+C explorer, interview practice, and reviewed official support links. Editorial and automated checks are recorded in RN4_CONTENT_SOURCES.md; owner review and real-user comprehension testing remain open. An older acceptance table assigns account/save checks RN-A08–09 to RN4, but the current RN4 checkpoint below covers employment preparation. Account architecture remains planned and no account implementation is included in this branch.
+
 The product releases are MVP, Phase 2 improvement and Phase 3 network growth. The implementation checkpoints below divide MVP into reviewable work. They do not claim implementation or authorize starting a phase.
 
 November 27 RN3 completion checkpoint: The owner confirmed Deepgram voice works and requested more helpful professional AI wording. A fresh 90-output synthetic evaluation finished under the approved cap; the server display filter contained unsupported concrete additions, but raw model output did not pass the release rule. The owner stopped further paid testing and approved this reviewed checkpoint for commit and push. Public AI stays off; the model-output gate and production operations/access checks remain open. See RN3_REVIEW.md.
