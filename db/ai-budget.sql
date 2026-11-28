@@ -31,9 +31,10 @@ CREATE OR REPLACE FUNCTION pondroot_ai.cleanup() RETURNS integer
 LANGUAGE plpgsql SECURITY DEFINER SET search_path=pg_catalog AS $fn$
 DECLARE removed integer;
 BEGIN
- DELETE FROM pondroot_ai.reservations WHERE reserved_at<now()-interval '90 days';
+ -- Daily scheduling may run late; delete at 89 days to stay inside 90 days.
+ DELETE FROM pondroot_ai.reservations WHERE reserved_at<now()-interval '89 days';
  GET DIAGNOSTICS removed=ROW_COUNT;
- DELETE FROM pondroot_ai.periods WHERE day<(now() AT TIME ZONE 'UTC')::date-90;
+ DELETE FROM pondroot_ai.periods WHERE day<(now() AT TIME ZONE 'UTC')::date-89;
  RETURN removed;
 END $fn$;
 REVOKE ALL ON SCHEMA pondroot_ai FROM PUBLIC;
